@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The World Today — Wednesday 25 November 2026</title>
+<style>
+  :root{
+    --paper:#F4EFE2;
+    --paper2:#EAE1CC;
+    --paper3:#DFD4BC;
+    --ink:#1B1A17;
+    --muted:#5E594E;
+    --rule:#8C8372;
+    --faint:#BDB29B;
+    --accent:#A32B24;
+    --accent2:#C2574C;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#cfc7b5}
+  body{font-family:Georgia,"Times New Roman",serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+  .page{
+    width:1024px;height:1024px;background:var(--paper);position:relative;overflow:hidden;
+    padding:12px 14px 10px 14px;
+    background-image:repeating-linear-gradient(0deg,rgba(27,26,23,.012) 0 1px,transparent 1px 4px);
+  }
+  .frame{position:absolute;inset:7px;border:1px solid rgba(27,26,23,.55);pointer-events:none}
+  .masthead{height:88px;border-bottom:4px double var(--ink);padding-bottom:4px;position:relative}
+  .mast-top{display:flex;justify-content:space-between;align-items:flex-start;font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:7.4px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);padding-top:3px}
+  .mast-name{color:var(--ink);font-weight:700}
+  .mast-date{font-size:58px;line-height:58px;font-weight:700;letter-spacing:-.6px;text-align:center;white-space:nowrap;margin-top:0}
+  .mast-deck{font-size:9px;line-height:10px;color:var(--muted);text-align:center;letter-spacing:.25px;margin-top:1px}
+  .mast-deck b{color:var(--ink)}
+  .vol{font-size:8px;letter-spacing:1.6px;color:var(--muted);text-transform:uppercase}
+  .vol2{font-size:9px;letter-spacing:1px;margin-top:3px;color:var(--ink)}
+  .date-dow{font-size:12px;letter-spacing:2.2px;font-weight:700;color:var(--accent)}
+  .date-full{font-size:15px;font-weight:700;letter-spacing:.6px;margin-top:1px}
+  .date-note{font-size:7px;letter-spacing:1.1px;color:var(--muted);margin-top:3px;text-transform:uppercase}
+  .region-band{display:flex;height:52px;margin-top:5px;gap:2px}
+  .region{height:52px;display:flex;flex-direction:column;justify-content:center;padding:0 7px;flex-basis:0;overflow:hidden}
+  .region b{font-size:19px;line-height:19px;font-family:Georgia,serif}
+  .region span{font-size:7.4px;line-height:8px;letter-spacing:1.2px;text-transform:uppercase;margin-top:2px;white-space:nowrap}
+  .region small{font-size:6.4px;letter-spacing:.8px;opacity:.8;margin-top:1px;text-transform:uppercase;white-space:nowrap}
+  .numbers{display:flex;height:44px;margin-top:4px;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+  .num{flex:1;border-right:1px solid var(--faint);padding:3px 7px 2px 7px;display:flex;align-items:baseline;gap:6px;min-width:0}
+  .num:last-child{border-right:0}
+  .num b{font-size:21px;line-height:22px;color:var(--accent);white-space:nowrap;letter-spacing:-.3px}
+  .num span{font-size:7.1px;line-height:8.4px;text-transform:uppercase;letter-spacing:.35px;color:var(--muted)}
+  .sec-head{display:flex;align-items:center;gap:7px;height:15px;margin-bottom:3px}
+  .sec-no{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:8px;font-weight:700;letter-spacing:1px;color:var(--accent)}
+  .sec-head h2{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:9.5px;line-height:11px;letter-spacing:2px;text-transform:uppercase;margin:0;font-weight:700}
+  .sec-head .rule{flex:1;height:1px;background:var(--ink);opacity:.65}
+  .sec-head .aside{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:7px;letter-spacing:.7px;text-transform:uppercase;color:var(--muted)}
+  .headlines{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;height:167px;margin-top:5px}
+  .headline{border-top:3px solid var(--ink);padding-top:3px;min-width:0;position:relative}
+  .h-kicker{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:7.6px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);font-weight:700}
+  .h-kicker .tag{color:var(--muted);font-weight:400;margin-left:4px}
+  .h-title{font-size:22px;line-height:22.5px;font-weight:700;height:45px;overflow:hidden;margin:2px 0 3px 0;letter-spacing:-.2px}
+  .h-art{height:68px;margin:0 0 3px 0;overflow:hidden}
+  .h-body{font-size:11px;line-height:12.3px;height:25px;overflow:hidden}
+  .h-src{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:6.6px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin-top:2px}
+  .map-section{height:168px;margin-top:5px;border-top:2px solid var(--ink);padding-top:3px}
+  .map-holder{position:relative;height:133px;border-bottom:1px solid var(--faint);background:var(--ink)}
+  .map-svg{display:block;width:100%;height:133px}
+  .map-note{position:absolute;right:4px;bottom:3px;font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:6.7px;letter-spacing:.5px;color:#D8CDB8}
+  .map-key{position:absolute;left:4px;bottom:3px;font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:6.7px;letter-spacing:.5px;color:#D8CDB8}
+  .cards-section{margin-top:5px}
+  .cards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px 9px}
+  .card{height:74px;border-top:1.5px solid var(--ink);padding-top:3px;display:grid;grid-template-columns:60px 1fr;gap:4px;min-width:0}
+  .card-art{width:60px;height:55px;margin-top:2px}
+  .card-txt{min-width:0}
+  .card-title{font-size:17px;line-height:18.2px;font-weight:700;height:36.4px;overflow:hidden;letter-spacing:-.2px}
+  .card-body{font-size:11px;line-height:11.6px;height:23px;overflow:hidden;color:#28261F;margin-top:1px}
+  .card-meta{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:6.3px;line-height:7px;letter-spacing:.55px;text-transform:uppercase;color:var(--muted);white-space:nowrap;overflow:hidden;margin-top:1px}
+  .card-meta b{color:var(--accent);font-weight:700}
+  .briefs-section{margin-top:5px}
+  .briefs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px 12px}
+  .brief{position:relative;font-size:11.4px;line-height:11.9px;height:24px;overflow:hidden;padding-left:16px;min-width:0}
+  .brief .n{position:absolute;left:0;top:0;font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:8.5px;line-height:11px;color:var(--accent);font-weight:700}
+  .brief .src{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:6.3px;letter-spacing:.4px;color:var(--muted);text-transform:uppercase}
+  .date-check{margin-top:5px;border-top:2px solid var(--ink);padding-top:3px;height:40px;display:flex;gap:10px}
+  .dc-label{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:8px;letter-spacing:1.6px;font-weight:700;color:var(--accent);width:86px;flex:none;padding-top:1px}
+  .dc-text{font-size:7.5px;line-height:9px;color:var(--muted);flex:1}
+  .dc-text b{color:var(--ink)}
+  .dc-tags{width:248px;flex:none;font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:6.1px;line-height:8px;letter-spacing:.3px;color:var(--muted);border-left:1px solid var(--faint);padding-left:7px}
+  .dc-tags b{color:var(--accent)}
+  svg.art{display:block;width:100%;height:100%}
+  .paper-dot{fill:#F4EFE2;opacity:.46}
+  .pin{fill:#C0392E;stroke:#FFF8EA;stroke-width:1.6}
+  .pin-label{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-weight:700;fill:#FFF8EA;font-size:6.4px;text-anchor:middle}
+  .map-region{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:6.2px;letter-spacing:1.5px;fill:#BDB29B;text-anchor:middle}
+</style>
+</head>
+<body>
+<div class="page" id="page"><div class="frame"></div></div>
+<script>
+const INK='#1B1A17', ACC='#A32B24', PAP='#F4EFE2', PAP2='#CDAF78', PAP3='#B08342', MUT='#5E594E';
+
+const REGIONS=[
+  {key:'EU',name:'EUROPE',count:4,color:'#7F241F',fg:'#F4EFE2'},
+  {key:'ME',name:'MIDDLE EAST',count:6,color:'#95271F',fg:'#F4EFE2'},
+  {key:'AM',name:'AMERICAS',count:4,color:'#AC342B',fg:'#F4EFE2'},
+  {key:'AS',name:'ASIA',count:6,color:'#C0463B',fg:'#FFF8EA'},
+  {key:'AF',name:'AFRICA',count:5,color:'#D05A4E',fg:'#FFF8EA'},
+  {key:'OC',name:'OCEANIA',count:4,color:'#DC766B',fg:'#FFF8EA'},
+  {key:'WD',name:'WORLD',count:6,color:'#E79288',fg:'#3A1C18'}
+];
+
+const NUMBERS=[
+  {v:'4',cap:'oil tankers mined in Hormuz — the fourth in days'},
+  {v:'36%',cap:'Bangladesh garment minimum-wage rise, 17,000 taka'},
+  {v:'1,926.92',cap:'points lost by Taiwan’s TAIEX in one session'},
+  {v:'5,258',cap:'heat-related deaths in England this summer'},
+  {v:'47,000',cap:'women and girls killed by relatives in 2025'},
+  {v:'53%',cap:'of New Zealand’s emissions come from farming'}
+];
+
+const STORIES=[
+{id:7,region:'ME',section:'lead',tag:'CONFIRMED',src:'ATLAS360 · MIDDLE EAST EYE',art:'tanker',title:'Fourth tanker mined in Hormuz as Iran sets terms',
+ body:'A fourth tanker struck a mine near Hormuz; Iran ties any talks to seven conditions.'},
+{id:31,region:'OC',section:'lead',tag:'OFFICIAL',src:'HINDUSTAN TIMES · CNA',art:'solomon',title:'Solomon Islands names Australia its security partner',
+ body:'Treaty makes Australia its principal security partner and leaves China out.'},
+{id:21,region:'AS',section:'lead',tag:'CONFIRMED',src:'PROTHOM ALO · DAWN',art:'garment',title:'Bangladesh garment wages rise 36% to 17,000 taka',
+ body:'Minimum wage board voted 4-2 for 17,000 taka a month from 1 December.'},
+
+{id:1,region:'EU',section:'card',tag:'OFFICIAL',src:'MEDUZA · CNA',art:'border',title:'Estonia closes Russian checkpoints',body:'All five checkpoints shut for six months from 1 December.'},
+{id:10,region:'ME',section:'card',tag:'REPORTED',src:'ASHARQ AL-AWSAT · MEE',art:'port',title:'Saudi-led raids hit Hodeidah port',body:'Port ‘capacity’ struck; Houthis say 11 hurt in Riyadh.'},
+{id:14,region:'AM',section:'card',tag:'REPORTED',src:'MEDUZA · SCMP',art:'cyber',title:'CIA and two US agencies hacked',body:'Non-classified data exposed at CIA, NGA, ODNI, NYT says.'},
+{id:20,region:'AS',section:'card',tag:'OFFICIAL',src:'CNA',art:'chart',title:'Taiwan stocks plunge 1,926.92',body:'TAIEX fell 4.80% to 38,195.43; sixth-biggest drop.'},
+{id:26,region:'AF',section:'card',tag:'OFFICIAL',src:'SCMP',art:'cobalt',title:'DRC to halt cobalt exports on 30 Nov',body:'Government orders halt; Chinese firms rush before ban.'},
+{id:35,region:'WD',section:'card',tag:'OFFICIAL',src:'DAWN · TAIPEI TIMES',art:'women',title:'47,000 women killed by relatives',body:'UN: five killed every hour; Africa tops toll at 22,100.'},
+{id:2,region:'EU',section:'card',tag:'REPORTED',src:'THE INSIDER · LIBERTY TIMES',art:'droneboat',title:'Zelensky: strike sank Russian ships',body:'Kyiv says seven sea drones hit ships and sank a frigate.'},
+{id:17,region:'AM',section:'card',tag:'REPORTED',src:'CNA · G1',art:'containers',title:'US Section 301 findings due',body:'Probe covers 16 economies; tariffs may stay under 15%.'},
+{id:22,region:'AS',section:'card',tag:'REPORTED',src:'ESTADÃO · CNA',art:'mineflood',title:'26 workers trapped in flooded gold mine',body:'Floodwater poured into an illegal shaft; rescue continues.'},
+{id:23,region:'AS',section:'card',tag:'OFFICIAL',src:'CNA',art:'phone',title:'Malaysia sues Google for RM600m',body:'Regulator claims about $146m over harmful content.'},
+{id:5,region:'EU',section:'card',tag:'REPORTED',src:'LE MONDE · GUARDIAN',art:'bridge',title:'Only 6 of London’s 30 bridges sound',body:'Most Thames crossings and Parliament are ageing.'},
+{id:37,region:'WD',section:'card',tag:'REPORTED',src:'EURONEWS · CNA',art:'quasar',title:'Oldest quasar: 630m years old',body:'One of the earliest known, over 13.1 billion years old.'},
+
+{id:3,region:'EU',section:'brief',src:'MEDUZA',title:'Lukashenko offers to fly Zelensky to Moscow for talks'},
+{id:8,region:'ME',section:'brief',src:'EURONEWS',title:'Iran sets seven conditions for talks; Qatar shuttles'},
+{id:9,region:'ME',section:'brief',src:'TIMES OF ISRAEL',title:'Reports: US discussed striking Iran’s leadership'},
+{id:11,region:'ME',section:'brief',src:'MEE',title:'Iran claims it downed an MQ-9 over Hormuz'},
+{id:13,region:'ME',section:'brief',src:'HINDUSTAN TIMES',title:'Iraq protests OPEC’s lower oil-capacity review'},
+{id:15,region:'AM',section:'brief',src:'ASHARQ AL-AWSAT',title:'Six killed, including two children, in Mississippi crash'},
+{id:18,region:'AM',section:'brief',src:'CNA',title:'TSMC sets Arizona expansion ceremony for 4 December'},
+{id:24,region:'AS',section:'brief',src:'CNA',title:'Taiwan culls about 500,000 invasive green iguanas'},
+{id:25,region:'AS',section:'brief',src:'YONHAP',title:'North Korea closes Switzerland’s Pyongyang office'},
+{id:27,region:'AF',section:'brief',src:'RIO TIMES',title:'Niger orders Mahamid Arabs out of Diffa by 31 December'},
+{id:28,region:'AF',section:'brief',src:'RIO TIMES',title:'Ethiopia offers to host Sudan talks'},
+{id:29,region:'AF',section:'brief',src:'PREMIUM TIMES',title:'WHO: 26% of Nigerian women lack antenatal care'},
+{id:30,region:'AF',section:'brief',src:'ICC',title:'Church attack at South Sudan’s Gorom camp'},
+{id:32,region:'OC',section:'brief',src:'HINDUSTAN TIMES',title:'Australia crater confirmed as a meteorite impact'},
+{id:33,region:'OC',section:'brief',src:'SCMP',title:'AUKUS: US report hints submarine deliveries may slip'},
+{id:34,region:'OC',section:'brief',src:'LE MONDE',title:'New Zealand drops methane levy'},
+{id:36,region:'WD',section:'brief',src:'RFI',title:'UN: 40% of war dead in 2023 were women, twice 2022'},
+{id:38,region:'WD',section:'brief',src:'G1',title:'Cuba’s life expectancy falls from 78.8 to 74.4 years'},
+{id:39,region:'WD',section:'brief',src:'RIO TIMES',title:'Ecuador floods kill 27; Babahoyo declares emergency'},
+{id:40,region:'WD',section:'brief',src:'MYANMAR NOW',title:'UN Council discusses Rohingya genocide ruling'}
+];
+
+const ICONS={
+border:`<svg class="art" viewBox="0 0 100 60"><rect width="100" height="60" fill="#EADFC8"/><path d="M2 51 H98" stroke="${INK}" stroke-width="1.2"/><path d="M10 51 V21 H29 V51 Z" fill="${PAP3}" stroke="${INK}" stroke-width="1.3"/><path d="M29 29 H91" stroke="${INK}" stroke-width="2.6"/><path d="M29 21 L91 10" stroke="${ACC}" stroke-width="3"/><path d="M69 29 V42" stroke="${INK}" stroke-width="1.4"/><path d="M11 12 h10 M11 16 h10" stroke="${INK}" opacity=".35"/><text x="53" y="27" font-family="Arial Narrow,Arial" font-size="6" letter-spacing="1" fill="${ACC}">CLOSED</text><path d="M10 21 H29" stroke="${INK}" stroke-width=".8" stroke-dasharray="2 2"/></svg>`,
+port:`<svg class="art" viewBox="0 0 100 60"><rect width="100" height="60" fill="#EADFC8"/><path d="M2 53 H98" stroke="${INK}" stroke-width="1.2"/><path d="M57 53 V9 M57 9 H17 M57 16 H82" stroke="${INK}" stroke-width="1.4"/><path d="M17 9 V20" stroke="${INK}" stroke-width=".9"/><path d="M17 20 L14 24 H20 Z" fill="${PAP3}" stroke="${INK}" stroke-width=".8"/><path d="M72 53 H96 L92 44 H76 Z" fill="${PAP3}" stroke="${INK}" stroke-width="1.2"/><path d="M78 44 V37 H86 V44" fill="${PAP}" stroke="${INK}" stroke-width="1"/><path d="M29 35 l3 -5 3 5 5 1 -4 4 1 5 -5 -3 -5 3 1 -5 -4 -4z" fill="${ACC}" opacity=".85"/><path d="M33 22 q2 -5 5 -1" stroke="${ACC}" stroke-width="1"/></svg>`,
+cyber:`<svg class="art" viewBox="0 0 100 60"><rect width="100" height="60" fill="#EADFC8"/><g stroke="${INK}" stroke-width="1.2" fill="${PAP2}"><rect x="10" y="10" width="20" height="40"/><rect x="34" y="10" width="20" height="40"/><rect x="58" y="10" width="20" height="40"/></g><g stroke="${INK}" stroke-width=".8"><path d="M14 17 h12 M14 23 h12 M14 29 h12 M14 40 h12 M38 17 h12 M38 23 h12 M38 29 h12 M38 40 h12 M62 17 h12 M62 23 h12 M62 29 h12 M62 40 h12"/></g><path d="M82 12 l-7 14 h6 l-4 13 13 -18 h-7 l4 -9z" fill="${ACC}"/><path d="M10 54 H74" stroke="${ACC}" stroke-width="1" stroke-dasharray="3 3"/></svg>`,
+chart:`<svg class="art" viewBox="0 0 100 60"><rect width="100" height="60" fill="#EADFC8"/><path d="M10 8 V51 H94" stroke="${INK}" stroke-width="1.2"/><path d="M10 14 H94 M10 26 H94 M10 38 H94" stroke="${INK}" opacity=".13"/><path d="M14 16 L27 20 L34 16 L45 25 L54 23 L66 34 L74 32 L86 48" stroke="${ACC}" stroke-width="2.4" fill="none"/><path d="M86 48 l-7 -1 5 -5z" fill="${ACC}"/><text x="55" y="14" font-family="Arial Narrow,Arial" font-size="7" fill="${ACC}">−4.80%</text></svg>`,
+cobalt:`<svg class="art" viewBox="0 0 100 60"><rect width="100" height="60" fill="#EADFC8"/><path d="M14 51 V23 Q14 8 32 8 Q50 8 50 23 V51" fill="${PAP2}" stroke="${INK}" stroke-width="1.2"/><path d="M14 51 H80" stroke="${INK}" stroke-width="1.2"/><path d="M56 51 H94" stroke="${INK}" stroke-width="1.2"/><g fill="${PAP3}" stroke="${INK}" stroke-width="1"><path d="M58 45 l7 -9 8 3 2 8 -9 4z"/><path d="M76 38 l8 -5 7 6 -2 9 -8 1z"/></g><text x="66" y="46" font-family="Arial Narrow,Arial" font-size="6" font-weight="bold" fill="${ACC}">Co</text><path d="M34 22 v16 M29 33 l5 6 5 -6" stroke="${ACC}" stroke-width="1.6" fill="none"/></svg>`,
+women:`<svg class="art" viewBox="0 0 100 60"><rect width="100" height="60" fill="#EADFC8"/><path d="M3 52 H97" stroke="${INK}" stroke-width="1.2"/><g fill="${PAP2}" stroke="${INK}" stroke-width="1.1"><path d="M14 52 V32 H22 V52 M12 32 H24 V25 H12 Z"/><path d="M36 52 V30 H44 V52 M34 30 H46 V23 H34 Z"/></g><g fill="${PAP3}" stroke="${INK}" stroke-width="1.1"><path d="M66 52 l18 -13 5 5 -18 13z"/><path d="M63 47 l7 7" /></g><path d="M52 40 q4 -6 8 -6 q4 0 6 4" stroke="${INK}" stroke-width="1.1" fill="none"/><path d="M56 28 q0 -8 5 -8 q5 0 5 8" fill="${PAP3}" stroke="${INK}"/><path d="M59 21 v-4" stroke="${INK}"/><path d="M58 17 q2 -5 4 -1 q2 -4 3 1" stroke="${ACC}" stroke-width="1.3" fill="${ACC}" opacity=".85"/></svg>`,
+droneboat:`<svg class="art" viewBox="0 0 100 60"><rect width="100" height="60" fill="#EADFC8"/><path d="M2 50 Q15 47 28 50 T54 50 T80 50 T98 50" stroke="${INK}" stroke-width=".9" opacity=".55" fill="none"/><path d="M44 38 H80 L76 27 H50 Z" fill="${PAP3}" stroke="${INK}" stroke-width="1.2"/><path d="M56 27 V18 H64 V27" fill="${PAP}" stroke="${INK}" stroke-width="1"/><path d="M18 44 H34 L31 36 H21 Z" fill="${PAP2}" stroke="${INK}" stroke-width="1.1"/><path d="M26 36 V27 M26 27 l5 -4" stroke="${INK}" stroke-width="1.1"/><path d="M31 23 l4 -3 2 5z" fill="${ACC}"/><path d="M6 54 Q14 50 22 54 T38 54" stroke="${ACC}" stroke-width="1.1" fill="none"/><path d="M68 34 l3 -6 3 6" stroke="${ACC}" stroke-width="1.2"/></svg>`,
+containers:`<svg class="art" viewBox="0 0 100 60"><rect width="100" height="60" fill="#EADFC8"/><g fill="${PAP2}" stroke="${INK}" stroke-width="1.1"><rect x="9" y="33" width="27" height="12"/><rect x="38" y="33" width="27" height="12"/><rect x="23" y="20" width="27" height="12"/><rect x="52" y="20" width="27" height="12"/><rect x="38" y="7" width="27" height="12"/></g><g stroke="${INK}" opacity=".45" stroke-width=".7"><path d="M16 33v12M22 33v12M30 33v12M45 33v12M52 33v12M59 33v12M30 20v12M37 20v12M45 20v12M59 20v12M66 20v12M45 7v12M52 7v12M60 7v12"/></g><path d="M83 12 V40" stroke="${INK}" stroke-width="1.2"/><path d="M80 40 h6 l-3 5z" fill="${INK}"/><circle cx="83" cy="50" r="8" fill="none" stroke="${ACC}" stroke-width="1.2"/><text x="83" y="52" text-anchor="middle" font-family="Arial Narrow,Arial" font-size="6.2" font-weight="bold" fill="${ACC}">301</text></svg>`,
+mineflood:`<svg class="art" viewBox="0 0 100 60"><rect width="100" height="60" fill="#EADFC8"/><path d="M10 51 V27 Q10 9 34 9 Q58 9 58 27 V51" fill="${PAP2}" stroke="${INK}" stroke-width="1.2"/><path d="M4 51 H96" stroke="${INK}" stroke-width="1.2"/><path d="M18 38 Q27 33 36 38 T54 38 V51 H18 Z" fill="${ACC}" opacity=".22" stroke="${ACC}" stroke-width="1"/><path d="M20 44 q6 -4 12 0 t12 0 M22 48 q6 -3 11 0 t11 0" stroke="${ACC}" stroke-width="1" fill="none"/><path d="M64 51 V33 H84 V51" fill="${PAP3}" stroke="${INK}" stroke-width="1"/><path d="M68 33 v-6 h5 v6" stroke="${INK}" stroke-width="1"/><circle cx="74" cy="24" r="4" fill="${PAP}" stroke="${INK}"/><path d="M64 40 q4 -3 8 0 M84 40 q-4 -3 -8 0" stroke="${INK}" stroke-width=".8"/></svg>`,
+phone:`<svg class="art" viewBox="0 0 100 60"><rect width="100" height="60" fill="#EADFC8"/><rect x="30" y="4" width="26" height="52" rx="3" fill="${PAP2}" stroke="${INK}" stroke-width="1.3"/><rect x="34" y="10" width="18" height="34" fill="${PAP}" stroke="${INK}" stroke-width=".7"/><path d="M43 17 l-7 13 h6 l-4 11 11 -15 h-6 l4 -9z" fill="${ACC}"/><circle cx="43" cy="49" r="1.4" fill="${INK}"/><path d="M67 35 h22 M67 41 h16 M67 47 h19" stroke="${INK}" stroke-width=".9" opacity=".4"/><text x="68" y="15" font-family="Arial Narrow,Arial" font-size="7" font-weight="bold" fill="${ACC}">RM600m</text></svg>`,
+bridge:`<svg class="art" viewBox="0 0 100 60"><rect width="100" height="60" fill="#EADFC8"/><path d="M3 48 H97" stroke="${INK}" stroke-width="1.4"/><path d="M8 48 V18 H20 V48 M62 48 V14 H74 V48" fill="none" stroke="${INK}" stroke-width="1.8"/><path d="M8 21 Q40 8 62 17 Q82 24 96 20" stroke="${INK}" stroke-width="1" fill="none"/><path d="M20 18 Q30 35 40 48 M40 48 Q48 30 62 14" stroke="${INK}" stroke-width=".9" fill="none"/><path d="M96 20 L96 48" stroke="${INK}" stroke-width=".8"/><path d="M22 44 h8 M34 44 h8 M46 44 h8" stroke="${INK}" stroke-width="1.4"/><path d="M78 31 l5 6 -4 3 6 6" stroke="${ACC}" stroke-width="1.3" fill="none"/></svg>`,
+quasar:`<svg class="art" viewBox="0 0 100 60"><rect width="100" height="60" fill="#1B1A17"/><g fill="#F4EFE2"><circle cx="18" cy="12" r=".9"/><circle cx="34" cy="7" r=".7"/><circle cx="52" cy="15" r="1.1"/><circle cx="74" cy="9" r=".8"/><circle cx="88" cy="22" r=".9"/><circle cx="12" cy="30" r=".7"/><circle cx="40" cy="28" r=".7"/><circle cx="63" cy="34" r=".6"/></g><path d="M60 18 Q73 8 84 16 Q94 24 84 33 Q76 40 68 35 Q62 31 66 25" fill="none" stroke="${ACC}" stroke-width="1.6"/><circle cx="75" cy="23" r="4.5" fill="${ACC}" opacity=".55"/><path d="M18 46 L28 36 H50 L42 50 H26 Z" fill="${PAP3}" stroke="${PAP}" stroke-width=".8"/><path d="M34 36 L28 20 L42 28" fill="${PAP3}" stroke="${PAP}" stroke-width=".8"/><path d="M42 30 L55 24" stroke="${PAP}" stroke-width="1"/><text x="7" y="56" font-family="Arial Narrow,Arial" font-size="5.5" fill="${PAP}">13.1 BILLION YEARS</text></svg>`
+};
+
+const ART_HEAD={
+tanker:`<svg class="art" viewBox="0 0 220 86"><rect width="220" height="86" fill="#EADFC8"/><path d="M0 62 Q18 58 36 62 T72 62 T108 62 T144 62 T180 62 T220 62" fill="none" stroke="${INK}" stroke-width="1.1" opacity=".45"/><path d="M0 69 Q22 65 44 69 T88 69 T132 69 T176 69 T220 69" fill="none" stroke="${INK}" stroke-width="1.1" opacity=".28"/><path d="M34 56 L52 43 H176 L194 56 Z" fill="${PAP3}" stroke="${INK}" stroke-width="1.5"/><path d="M66 43 V32 H88 V43" fill="${PAP}" stroke="${INK}" stroke-width="1.3"/><path d="M150 43 V24 H173 V43" fill="${PAP}" stroke="${INK}" stroke-width="1.3"/><path d="M156 30 h4 M164 30 h4 M156 36 h4 M164 36 h4" stroke="${INK}" stroke-width=".9"/><path d="M94 43 V30 h6 v13" fill="${ACC}"/><path d="M99 32 Q88 22 100 9 Q100 20 110 20 Q120 22 114 35 Q108 26 104 30 Q101 34 99 32Z" fill="${ACC}" opacity=".22" stroke="${ACC}" stroke-width="1.2"/><path d="M104 30 q3 -7 7 -9" stroke="${ACC}" stroke-width="1.2"/><path d="M194 56 h18" stroke="${INK}" stroke-width="1.4"/><path d="M8 42 q10 -7 21 0" stroke="${INK}" opacity=".35" fill="none"/><text x="9" y="14" font-family="Arial Narrow,Arial" font-size="8" letter-spacing="1.6" fill="${INK}">STRAIT OF HORMUZ</text><text x="164" y="16" font-family="Arial Narrow,Arial" font-size="7" font-weight="bold" letter-spacing="1" fill="${ACC}">4TH TANKER</text></svg>`,
+solomon:`<svg class="art" viewBox="0 0 220 86"><rect width="220" height="86" fill="#EADFC8"/><circle cx="177" cy="18" r="10" fill="${ACC}" opacity=".18"/><path d="M0 58 Q18 55 36 58 T72 58 T108 58 T144 58 T180 58 T220 58" stroke="${INK}" stroke-width="1" opacity=".4" fill="none"/><path d="M0 65 Q26 61 52 65 T104 65 T156 65 T208 65 T220 65" stroke="${INK}" stroke-width=".9" opacity=".22" fill="none"/><path d="M0 54 Q16 34 32 44 Q44 30 60 45 Q74 32 88 48 L88 58 H0 Z" fill="${PAP3}" stroke="${INK}" stroke-width="1.2"/><path d="M104 59 H214 M112 59 V66 M130 59 V66 M150 59 V66 M170 59 V66 M190 59 V66 M208 59 V66" stroke="${INK}" stroke-width="1.2"/><path d="M120 54 H148 L143 47 H125 Z" fill="${PAP2}" stroke="${INK}" stroke-width="1.1"/><path d="M132 47 V40" stroke="${INK}" stroke-width=".9"/><path d="M165 58 V24 M196 58 V24" stroke="${INK}" stroke-width="1.4"/><path d="M166 25 H184 V36 H166 Z" fill="#1B1A17" stroke="${INK}" stroke-width=".8"/><path d="M168 27 l7 7 M175 27 l-7 7 M171 26 v9 M167 31 h9" stroke="#F4EFE2" stroke-width=".7"/><path d="M167 34 l2 2 2 -2 2 2 2 -2 2 2" stroke="#F4EFE2" stroke-width=".6"/><path d="M197 25 H215 V36 H197 Z" fill="#A32B24" stroke="${INK}" stroke-width=".8"/><path d="M197 25 L215 36 M197 36 L215 25" stroke="#F4EFE2" stroke-width="1.4"/><g fill="#F4EFE2"><circle cx="203" cy="29" r=".8"/><circle cx="208" cy="30" r=".8"/><circle cx="205" cy="33" r=".7"/><circle cx="211" cy="33" r=".8"/><circle cx="207" cy="31" r=".6"/></g><text x="9" y="16" font-family="Arial Narrow,Arial" font-size="7.5" letter-spacing="1.4" fill="${INK}">HONIARA · 25 NOV</text></svg>`,
+garment:`<svg class="art" viewBox="0 0 220 86"><rect width="220" height="86" fill="#EADFC8"/><g fill="none" stroke="${INK}"><rect x="142" y="10" width="64" height="42" stroke-width="1.2"/><path d="M142 24 H206 M142 38 H206 M164 10 V52 M183 10 V52" stroke-width=".7" opacity=".6"/></g><path d="M25 12 V22 M25 22 L17 30 H33 Z" fill="${PAP3}" stroke="${INK}" stroke-width="1"/><path d="M72 12 V22 M72 22 L64 30 H80 Z" fill="${PAP3}" stroke="${INK}" stroke-width="1"/><path d="M119 12 V22 M119 22 L111 30 H127 Z" fill="${PAP3}" stroke="${INK}" stroke-width="1"/><path d="M6 72 H214" stroke="${INK}" stroke-width="1.3"/><g stroke="${INK}" stroke-width="1.1"><path d="M20 66 V55 H56 V66" fill="${PAP2}"/><path d="M68 66 V55 H104 V66" fill="${PAP2}"/><path d="M116 66 V55 H152 V66" fill="${PAP2}"/><path d="M20 58 H56 M68 58 H104 M116 58 H152" stroke-width="1.4"/></g><g fill="${PAP3}" stroke="${INK}" stroke-width="1"><circle cx="39" cy="44" r="6"/><path d="M27 55 Q30 47 39 47 Q48 47 51 55"/><circle cx="87" cy="44" r="6"/><path d="M75 55 Q78 47 87 47 Q96 47 99 55"/><circle cx="135" cy="44" r="6"/><path d="M123 55 Q126 47 135 47 Q144 47 147 55"/></g><path d="M160 66 q4 -12 15 -12 q11 0 13 12" fill="${PAP2}" stroke="${INK}" stroke-width="1"/><path d="M166 66 q3 -8 10 -8 q7 0 9 8" fill="${PAP3}" stroke="${INK}" stroke-width=".8"/><path d="M8 10 h38" stroke="${ACC}" stroke-width="2"/><text x="8" y="8" font-family="Arial Narrow,Arial" font-size="7" letter-spacing="1.3" fill="${ACC}">GAZIPUR · 17,000 TAKA</text></svg>`
+};
+
+// ---------- build ----------
+const page=document.getElementById('page');
+const total=STORIES.length;
+const counts={}; STORIES.forEach(s=>counts[s.region]=(counts[s.region]||0)+1);
+
+let html='';
+html+='<header class="masthead">'+
+ '<div class="mast-top"><span class="mast-name">THE WORLD TODAY · ONE PAGE</span><span>Vol. I · No. 25 · 35 stories tracked · 7 regions</span></div>'+
+ '<div class="mast-date">Wednesday 25 November 2026</div>'+
+ '<div class="mast-deck">The news of one day, from seven regions — every story dated <b>Wednesday 25 November 2026</b></div>'+
+'</header>';
+
+html+='<div class="region-band">'+REGIONS.map(r=>`<div class="region" style="flex-grow:${r.count};background:${r.color};color:${r.fg}"><b>${String(r.count).padStart(2,'0')}</b><span>${r.name}</span><small>${r.key}</small></div>`).join('')+'</div>';
+
+html+='<div class="numbers">'+NUMBERS.map(n=>`<div class="num"><b>${n.v}</b><span>${n.cap}</span></div>`).join('')+'</div>';
+
+const leads=STORIES.filter(s=>s.section==='lead');
+html+='<section class="headlines">'+leads.map((s,i)=>`<article class="headline"><div class="h-kicker">LEAD ${String(i+1).padStart(2,'0')} · ${REGIONS.find(r=>r.key===s.region).name}<span class="tag">${s.tag}</span></div><div class="h-title">${s.title}</div><div class="h-art">${ART_HEAD[s.art]}</div><div class="h-body">${s.body}</div><div class="h-src">${s.src}</div></article>`).join('')+'</section>';
+
+// map
+const MAP_W=960, MAP_H=132, LON0=-180, LON1=180, LAT0=-58, LAT1=84;
+const POLYS=[
+[[-168,65],[-150,70],[-130,72],[-105,73],[-85,72],[-70,68],[-60,58],[-52,48],[-65,45],[-70,42],[-75,35],[-81,25],[-90,29],[-97,26],[-105,22],[-112,28],[-118,33],[-125,40],[-130,50],[-140,60]],
+[[-105,22],[-94,18],[-88,21],[-83,15],[-77,8],[-82,7],[-88,13],[-95,15]],
+[[-81,12],[-70,12],[-60,10],[-50,0],[-35,-6],[-38,-22],[-48,-28],[-58,-40],[-65,-55],[-73,-52],[-75,-40],[-80,-20],[-81,0]],
+[[-55,83],[-20,83],[-18,70],[-45,60],[-58,65]],
+[[-10,36],[0,44],[15,45],[30,45],[40,60],[30,70],[10,71],[-5,58],[-10,50]],
+[[-17,37],[10,37],[32,31],[43,12],[51,12],[48,-5],[40,-18],[32,-26],[25,-34],[18,-35],[12,-18],[8,4],[-8,5],[-17,14]],
+[[35,40],[60,40],[60,15],[45,12],[35,28]],
+[[30,45],[60,45],[100,55],[140,70],[180,70],[180,50],[160,50],[145,35],[130,30],[122,22],[110,10],[100,5],[95,15],[80,8],[70,20],[60,25],[50,30],[40,40]],
+[[68,25],[75,8],[80,8],[88,22],[80,25]],
+[[95,5],[120,2],[140,5],[150,-8],[130,-8],[115,-8]],
+[[113,-22],[130,-12],[145,-15],[153,-28],[146,-38],[135,-35],[120,-34]],
+[[172,-35],[178,-38],[174,-46],[167,-45]]
+];
+function proj(lon,lat){return [ (lon-LON0)/(LON1-LON0)*MAP_W, (LAT1-lat)/(LAT1-LAT0)*MAP_H ];}
+function inPoly(x,y,pts){let odd=false;for(let i=0,j=pts.length-1;i<pts.length;j=i++){const xi=pts[i][0],yi=pts[i][1],xj=pts[j][0],yj=pts[j][1];if(((yi>y)!==(yj>y))&&x<(xj-xi)*(y-yi)/(yj-yi)+xi)odd=!odd;}return odd;}
+let dots='';
+for(let y=0;y<=MAP_H;y+=8){for(let x=0;x<=MAP_W;x+=8){let hit=false;for(const poly of POLYS){const p=poly.map(([lo,la])=>proj(lo,la));if(inPoly(x,y,p)){hit=true;break;}}if(hit)dots+=`<circle class="paper-dot" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="1.15"/>`;}}
+const PINS=[
+{id:1,lon:25.5,lat:58.6},{id:3,lon:37.6,lat:55.8},{id:5,lon:-.1,lat:51.5},
+{id:7,lon:56.5,lat:26.5},{id:10,lon:43,lat:14.8},{id:13,lon:44.4,lat:33.3},
+{id:14,lon:-77,lat:38.9},{id:20,lon:121.5,lat:25},{id:21,lon:90.4,lat:23.8},
+{id:22,lon:112,lat:-2},{id:25,lon:125.8,lat:39},{id:26,lon:24,lat:-8},
+{id:27,lon:13,lat:14},{id:29,lon:8,lat:9.1},{id:31,lon:160,lat:-9.4},
+{id:32,lon:120,lat:-24},{id:33,lon:149,lat:-35},{id:34,lon:175,lat:-41},
+{id:35,lon:-74,lat:40.7},{id:37,lon:-70,lat:-25},{id:38,lon:-82.4,lat:23.1},
+{id:39,lon:-79.5,lat:-1.8},{id:40,lon:96,lat:19}
+];
+let pins='';
+PINS.forEach(p=>{const [x,y]=proj(p.lon,p.lat);pins+=`<circle class="pin" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="7"/><text class="pin-label" x="${x.toFixed(1)}" y="${(y+2).toFixed(1)}">${String(p.id).padStart(2,'0')}</text>`;});
+const mapSvg=`<svg class="map-svg" viewBox="0 0 ${MAP_W} ${MAP_H}" preserveAspectRatio="xMidYMid meet">${dots}<g class="map-region"><text x="${proj(-105,55)[0]}" y="18">AMERICAS</text><text x="${proj(15,52)[0]}" y="18">EUROPE</text><text x="${proj(20,5)[0]}" y="${MAP_H-6}">AFRICA</text><text x="${proj(95,55)[0]}" y="18">ASIA</text><text x="${proj(135,-20)[0]}" y="${MAP_H-6}">OCEANIA</text></g>${pins}</svg>`;
+html+=`<section class="map-section"><div class="sec-head"><span class="sec-no">03</span><h2>Where it happened</h2><span class="rule"></span><span class="aside">${PINS.length} numbered pins · story numbers</span></div><div class="map-holder">${mapSvg}<div class="map-key">Dot matrix: rough equirectangular world</div><div class="map-note">Pin 07 = Hormuz · 14 = Washington · 20 = Taipei · 31 = Honiara</div></div></section>`;
+
+const cards=STORIES.filter(s=>s.section==='card');
+html+=`<section class="cards-section"><div class="sec-head"><span class="sec-no">04</span><h2>Twelve stories that moved the day</h2><span class="rule"></span><span class="aside">Picture · fact · source</span></div><div class="cards-grid">`+cards.map(s=>`<article class="card"><div class="card-art">${ICONS[s.art]}</div><div class="card-txt"><div class="card-title">${s.title}</div><div class="card-body">${s.body}</div><div class="card-meta"><b>${String(s.id).padStart(2,'0')} · ${s.tag}</b> · ${s.src}</div></div></article>`).join('')+'</div></section>';
+
+const briefs=STORIES.filter(s=>s.section==='brief');
+html+=`<section class="briefs-section"><div class="sec-head"><span class="sec-no">05</span><h2>Around the world in one line</h2><span class="rule"></span><span class="aside">${briefs.length} briefs · source in small caps</span></div><div class="briefs-grid">`+briefs.map(s=>`<div class="brief"><span class="n">${String(s.id).padStart(2,'0')}</span>${s.title} <span class="src">${s.src}</span></div>`).join('')+'</div></section>';
+
+html+=`<footer class="date-check"><div class="dc-label">DATE CHECK</div><div class="dc-text"><b>Every item is an event of, or first reported on, Wednesday 25 November 2026 (any time zone).</b> Excluded as earlier: ICJ Rohingya genocide ruling (19 Nov), COP31 collapse (22–23 Nov), Brazil wolbachia dengue study (22 Nov), India rice export duty (23 Nov).</div><div class="dc-tags"><b>Tags:</b> CONFIRMED original checked · OFFICIAL official release · REPORTED mainstream report · CLAIM single claim · ONGOING developing. Outlet names are source abbreviations.</div></footer>`;
+
+page.insertAdjacentHTML('beforeend',html);
+
+// expose measurements for QA
+window.__measure=()=>{
+  const out=[];
+  document.querySelectorAll('.masthead,.region-band,.numbers,.headlines,.map-section,.cards-section,.briefs-section,.date-check').forEach(el=>{
+    const r=el.getBoundingClientRect(); out.push({cls:el.className,top:+r.top.toFixed(1),bottom:+r.bottom.toFixed(1),height:+r.height.toFixed(1)});
+  });
+  const cards=[...document.querySelectorAll('.card')].map(el=>{const r=el.getBoundingClientRect();return {t:r.top,b:r.bottom,h:r.height,scroll:el.scrollHeight};});
+  const briefs=[...document.querySelectorAll('.brief')].map(el=>({n:el.querySelector('.n')?.textContent||'',text:el.textContent.slice(0,60),h:el.clientHeight,scroll:el.scrollHeight}));
+  return {sections:out,cards,briefs,docH:document.documentElement.scrollHeight,bodyH:document.body.scrollHeight};
+};
+document.body.setAttribute('data-measure', JSON.stringify(window.__measure()));
+</script>
+</body>
+</html>
