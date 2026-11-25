@@ -40,11 +40,11 @@
   .region b{font-size:19px;line-height:19px;font-family:Georgia,serif}
   .region span{font-size:7.4px;line-height:8px;letter-spacing:1.2px;text-transform:uppercase;margin-top:2px;white-space:nowrap}
   .region small{font-size:6.4px;letter-spacing:.8px;opacity:.8;margin-top:1px;text-transform:uppercase;white-space:nowrap}
-  .numbers{display:flex;height:44px;margin-top:4px;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
-  .num{flex:1;border-right:1px solid var(--faint);padding:3px 7px 2px 7px;display:flex;align-items:baseline;gap:6px;min-width:0}
+  .numbers{display:flex;height:44px;margin-top:4px;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);background:#1B1813}
+  .num{flex:1;border-right:1px solid rgba(244,239,226,.22);padding:3px 7px 2px 7px;display:flex;align-items:baseline;gap:6px;min-width:0}
   .num:last-child{border-right:0}
-  .num b{font-size:21px;line-height:22px;color:var(--accent);white-space:nowrap;letter-spacing:-.3px}
-  .num span{font-size:7.1px;line-height:8.4px;text-transform:uppercase;letter-spacing:.35px;color:var(--muted)}
+  .num b{font-size:21px;line-height:22px;color:#FFF8EA;white-space:nowrap;letter-spacing:-.3px}
+  .num span{font-size:7.1px;line-height:8.4px;text-transform:uppercase;letter-spacing:.35px;color:#D8CDB8}
   .sec-head{display:flex;align-items:center;gap:7px;height:15px;margin-bottom:3px}
   .sec-no{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:8px;font-weight:700;letter-spacing:1px;color:var(--accent)}
   .sec-head h2{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:9.5px;line-height:11px;letter-spacing:2px;text-transform:uppercase;margin:0;font-weight:700}
@@ -65,7 +65,7 @@
   .map-key{position:absolute;left:4px;bottom:3px;font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:6.7px;letter-spacing:.5px;color:#D8CDB8}
   .cards-section{margin-top:5px}
   .cards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px 9px}
-  .card{height:74px;border-top:1.5px solid var(--ink);padding-top:3px;display:grid;grid-template-columns:60px 1fr;gap:4px;min-width:0}
+  .card{height:74px;border-top:8px solid var(--ink);padding-top:0;display:grid;grid-template-columns:60px 1fr;gap:4px;min-width:0}
   .card-art{width:60px;height:55px;margin-top:2px}
   .card-txt{min-width:0}
   .card-title{font-size:17px;line-height:18.2px;font-weight:700;height:36.4px;overflow:hidden;letter-spacing:-.2px}
@@ -87,7 +87,7 @@
   .paper-dot{fill:#F4EFE2;opacity:.46}
   .pin{fill:#C0392E;stroke:#FFF8EA;stroke-width:1.6}
   .pin-label{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-weight:700;fill:#FFF8EA;font-size:6.4px;text-anchor:middle}
-  .map-region{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:6.2px;letter-spacing:1.5px;fill:#BDB29B;text-anchor:middle}
+  .map-region{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:6.2px;letter-spacing:1.5px;fill:#F4EFE2;opacity:.8;text-anchor:middle}
 </style>
 </head>
 <body>
@@ -96,13 +96,13 @@
 const INK='#1B1A17', ACC='#A32B24', PAP='#F4EFE2', PAP2='#CDAF78', PAP3='#B08342', MUT='#5E594E';
 
 const REGIONS=[
-  {key:'EU',name:'EUROPE',count:4,color:'#7F241F',fg:'#F4EFE2'},
-  {key:'ME',name:'MIDDLE EAST',count:6,color:'#95271F',fg:'#F4EFE2'},
-  {key:'AM',name:'AMERICAS',count:4,color:'#AC342B',fg:'#F4EFE2'},
-  {key:'AS',name:'ASIA',count:6,color:'#C0463B',fg:'#FFF8EA'},
-  {key:'AF',name:'AFRICA',count:5,color:'#D05A4E',fg:'#FFF8EA'},
-  {key:'OC',name:'OCEANIA',count:4,color:'#DC766B',fg:'#FFF8EA'},
-  {key:'WD',name:'WORLD',count:6,color:'#E79288',fg:'#3A1C18'}
+  {key:'EU',name:'EUROPE',count:4,color:'#2C6A4D',fg:'#F4EFE2'},
+  {key:'ME',name:'MIDDLE EAST',count:6,color:'#B02418',fg:'#F4EFE2'},
+  {key:'AM',name:'AMERICAS',count:4,color:'#1E4A74',fg:'#F4EFE2'},
+  {key:'AS',name:'ASIA',count:6,color:'#9C5F16',fg:'#F4EFE2'},
+  {key:'AF',name:'AFRICA',count:5,color:'#5A3A76',fg:'#F4EFE2'},
+  {key:'OC',name:'OCEANIA',count:4,color:'#7A5230',fg:'#F4EFE2'},
+  {key:'WD',name:'WORLD',count:6,color:'#5A544A',fg:'#F4EFE2'}
 ];
 
 const NUMBERS=[
@@ -173,9 +173,9 @@ quasar:`<svg class="art" viewBox="0 0 100 60"><rect width="100" height="60" fill
 };
 
 const ART_HEAD={
-tanker:`<svg class="art" viewBox="0 0 220 86"><rect width="220" height="86" fill="#EADFC8"/><path d="M0 62 Q18 58 36 62 T72 62 T108 62 T144 62 T180 62 T220 62" fill="none" stroke="${INK}" stroke-width="1.1" opacity=".45"/><path d="M0 69 Q22 65 44 69 T88 69 T132 69 T176 69 T220 69" fill="none" stroke="${INK}" stroke-width="1.1" opacity=".28"/><path d="M34 56 L52 43 H176 L194 56 Z" fill="${PAP3}" stroke="${INK}" stroke-width="1.5"/><path d="M66 43 V32 H88 V43" fill="${PAP}" stroke="${INK}" stroke-width="1.3"/><path d="M150 43 V24 H173 V43" fill="${PAP}" stroke="${INK}" stroke-width="1.3"/><path d="M156 30 h4 M164 30 h4 M156 36 h4 M164 36 h4" stroke="${INK}" stroke-width=".9"/><path d="M94 43 V30 h6 v13" fill="${ACC}"/><path d="M99 32 Q88 22 100 9 Q100 20 110 20 Q120 22 114 35 Q108 26 104 30 Q101 34 99 32Z" fill="${ACC}" opacity=".22" stroke="${ACC}" stroke-width="1.2"/><path d="M104 30 q3 -7 7 -9" stroke="${ACC}" stroke-width="1.2"/><path d="M194 56 h18" stroke="${INK}" stroke-width="1.4"/><path d="M8 42 q10 -7 21 0" stroke="${INK}" opacity=".35" fill="none"/><text x="9" y="14" font-family="Arial Narrow,Arial" font-size="8" letter-spacing="1.6" fill="${INK}">STRAIT OF HORMUZ</text><text x="164" y="16" font-family="Arial Narrow,Arial" font-size="7" font-weight="bold" letter-spacing="1" fill="${ACC}">4TH TANKER</text></svg>`,
-solomon:`<svg class="art" viewBox="0 0 220 86"><rect width="220" height="86" fill="#EADFC8"/><circle cx="177" cy="18" r="10" fill="${ACC}" opacity=".18"/><path d="M0 58 Q18 55 36 58 T72 58 T108 58 T144 58 T180 58 T220 58" stroke="${INK}" stroke-width="1" opacity=".4" fill="none"/><path d="M0 65 Q26 61 52 65 T104 65 T156 65 T208 65 T220 65" stroke="${INK}" stroke-width=".9" opacity=".22" fill="none"/><path d="M0 54 Q16 34 32 44 Q44 30 60 45 Q74 32 88 48 L88 58 H0 Z" fill="${PAP3}" stroke="${INK}" stroke-width="1.2"/><path d="M104 59 H214 M112 59 V66 M130 59 V66 M150 59 V66 M170 59 V66 M190 59 V66 M208 59 V66" stroke="${INK}" stroke-width="1.2"/><path d="M120 54 H148 L143 47 H125 Z" fill="${PAP2}" stroke="${INK}" stroke-width="1.1"/><path d="M132 47 V40" stroke="${INK}" stroke-width=".9"/><path d="M165 58 V24 M196 58 V24" stroke="${INK}" stroke-width="1.4"/><path d="M166 25 H184 V36 H166 Z" fill="#1B1A17" stroke="${INK}" stroke-width=".8"/><path d="M168 27 l7 7 M175 27 l-7 7 M171 26 v9 M167 31 h9" stroke="#F4EFE2" stroke-width=".7"/><path d="M167 34 l2 2 2 -2 2 2 2 -2 2 2" stroke="#F4EFE2" stroke-width=".6"/><path d="M197 25 H215 V36 H197 Z" fill="#A32B24" stroke="${INK}" stroke-width=".8"/><path d="M197 25 L215 36 M197 36 L215 25" stroke="#F4EFE2" stroke-width="1.4"/><g fill="#F4EFE2"><circle cx="203" cy="29" r=".8"/><circle cx="208" cy="30" r=".8"/><circle cx="205" cy="33" r=".7"/><circle cx="211" cy="33" r=".8"/><circle cx="207" cy="31" r=".6"/></g><text x="9" y="16" font-family="Arial Narrow,Arial" font-size="7.5" letter-spacing="1.4" fill="${INK}">HONIARA · 25 NOV</text></svg>`,
-garment:`<svg class="art" viewBox="0 0 220 86"><rect width="220" height="86" fill="#EADFC8"/><g fill="none" stroke="${INK}"><rect x="142" y="10" width="64" height="42" stroke-width="1.2"/><path d="M142 24 H206 M142 38 H206 M164 10 V52 M183 10 V52" stroke-width=".7" opacity=".6"/></g><path d="M25 12 V22 M25 22 L17 30 H33 Z" fill="${PAP3}" stroke="${INK}" stroke-width="1"/><path d="M72 12 V22 M72 22 L64 30 H80 Z" fill="${PAP3}" stroke="${INK}" stroke-width="1"/><path d="M119 12 V22 M119 22 L111 30 H127 Z" fill="${PAP3}" stroke="${INK}" stroke-width="1"/><path d="M6 72 H214" stroke="${INK}" stroke-width="1.3"/><g stroke="${INK}" stroke-width="1.1"><path d="M20 66 V55 H56 V66" fill="${PAP2}"/><path d="M68 66 V55 H104 V66" fill="${PAP2}"/><path d="M116 66 V55 H152 V66" fill="${PAP2}"/><path d="M20 58 H56 M68 58 H104 M116 58 H152" stroke-width="1.4"/></g><g fill="${PAP3}" stroke="${INK}" stroke-width="1"><circle cx="39" cy="44" r="6"/><path d="M27 55 Q30 47 39 47 Q48 47 51 55"/><circle cx="87" cy="44" r="6"/><path d="M75 55 Q78 47 87 47 Q96 47 99 55"/><circle cx="135" cy="44" r="6"/><path d="M123 55 Q126 47 135 47 Q144 47 147 55"/></g><path d="M160 66 q4 -12 15 -12 q11 0 13 12" fill="${PAP2}" stroke="${INK}" stroke-width="1"/><path d="M166 66 q3 -8 10 -8 q7 0 9 8" fill="${PAP3}" stroke="${INK}" stroke-width=".8"/><path d="M8 10 h38" stroke="${ACC}" stroke-width="2"/><text x="8" y="8" font-family="Arial Narrow,Arial" font-size="7" letter-spacing="1.3" fill="${ACC}">GAZIPUR · 17,000 TAKA</text></svg>`
+ tanker:()=>`<svg class="art" viewBox="0 0 220 86"><path d="M0 62 Q18 58 36 62 T72 62 T108 62 T144 62 T180 62 T220 62" fill="none" stroke="#F4EFE2" stroke-width="1.1" opacity=".5"/><path d="M0 69 Q22 65 44 69 T88 69 T132 69 T176 69 T220 69" fill="none" stroke="#F4EFE2" stroke-width="1.1" opacity=".28"/><path d="M34 56 L52 43 H176 L194 56 Z" fill="#7E1810" stroke="#F4EFE2" stroke-width="1.6"/><path d="M66 43 V32 H88 V43" fill="#F4EFE2" stroke="#1B1A17" stroke-width="1.3"/><path d="M150 43 V24 H173 V43" fill="#F4EFE2" stroke="#1B1A17" stroke-width="1.3"/><path d="M156 30 h4 M164 30 h4 M156 36 h4 M164 36 h4" stroke="#1B1A17" stroke-width="1.1"/><path d="M94 43 V30 h6 v13" fill="#1B1A17"/><path d="M99 32 Q88 22 100 9 Q100 20 110 20 Q120 22 114 35 Q108 26 104 30 Q101 34 99 32Z" fill="#F4EFE2" opacity=".85" stroke="#F4EFE2" stroke-width="1.1"/><path d="M104 30 q3 -7 7 -9" stroke="#1B1A17" stroke-width="1.2"/><path d="M194 56 h18" stroke="#F4EFE2" stroke-width="1.4"/><path d="M8 42 q10 -7 21 0" stroke="#F4EFE2" opacity=".55" fill="none"/><path d="M52 49 H176" stroke="#F4EFE2" stroke-width="1" opacity=".5"/><text x="9" y="14" font-family="Arial Narrow,Arial" font-size="8" letter-spacing="1.6" fill="#F4EFE2">STRAIT OF HORMUZ</text><text x="164" y="16" font-family="Arial Narrow,Arial" font-size="7" font-weight="bold" letter-spacing="1" fill="#F4EFE2">4TH TANKER</text></svg>`,
+ solomon:()=>`<svg class="art" viewBox="0 0 220 86"><circle cx="177" cy="18" r="10" fill="#F4EFE2" opacity=".2"/><path d="M0 58 Q18 55 36 58 T72 58 T108 58 T144 58 T180 58 T220 58" stroke="#F4EFE2" stroke-width="1" opacity=".45" fill="none"/><path d="M0 65 Q26 61 52 65 T104 65 T156 65 T208 65 T220 65" stroke="#F4EFE2" stroke-width=".9" opacity=".25" fill="none"/><path d="M0 54 Q16 34 32 44 Q44 30 60 45 Q74 32 88 48 L88 58 H0 Z" fill="#1B1A17" stroke="#F4EFE2" stroke-width="1.3"/><path d="M104 59 H214 M112 59 V66 M130 59 V66 M150 59 V66 M170 59 V66 M190 59 V66 M208 59 V66" stroke="#F4EFE2" stroke-width="1.2"/><path d="M120 54 H148 L143 47 H125 Z" fill="#F4EFE2" stroke="#1B1A17" stroke-width="1.1"/><path d="M132 47 V40" stroke="#1B1A17" stroke-width=".9"/><path d="M165 58 V24 M196 58 V24" stroke="#F4EFE2" stroke-width="1.4"/><path d="M166 25 H184 V36 H166 Z" fill="#1B1A17" stroke="#F4EFE2" stroke-width="1"/><path d="M168 27 l7 7 M175 27 l-7 7 M171 26 v9 M167 31 h9" stroke="#F4EFE2" stroke-width=".9"/><path d="M197 25 H215 V36 H197 Z" fill="#1B1A17" stroke="#F4EFE2" stroke-width="1"/><path d="M197 25 L215 36 M197 36 L215 25" stroke="#F4EFE2" stroke-width="1.4"/><g fill="#F4EFE2"><circle cx="203" cy="29" r=".8"/><circle cx="208" cy="30" r=".8"/><circle cx="205" cy="33" r=".7"/><circle cx="211" cy="33" r=".8"/><circle cx="207" cy="31" r=".6"/></g><text x="9" y="16" font-family="Arial Narrow,Arial" font-size="7.5" letter-spacing="1.4" fill="#F4EFE2">HONIARA · 25 NOV</text></svg>`,
+ garment:()=>`<svg class="art" viewBox="0 0 220 86"><g fill="none" stroke="#F4EFE2"><rect x="142" y="10" width="64" height="42" stroke-width="1.3"/><path d="M142 24 H206 M142 38 H206 M164 10 V52 M183 10 V52" stroke-width=".8" opacity=".85"/></g><path d="M25 12 V22 M25 22 L17 30 H33 Z" fill="#8A5312" stroke="#F4EFE2" stroke-width="1"/><path d="M72 12 V22 M72 22 L64 30 H80 Z" fill="#8A5312" stroke="#F4EFE2" stroke-width="1"/><path d="M119 12 V22 M119 22 L111 30 H127 Z" fill="#8A5312" stroke="#F4EFE2" stroke-width="1"/><path d="M6 72 H214" stroke="#F4EFE2" stroke-width="1.3"/><g stroke="#F4EFE2" stroke-width="1.1"><path d="M20 66 V55 H56 V66" fill="#8A5312"/><path d="M68 66 V55 H104 V66" fill="#8A5312"/><path d="M116 66 V55 H152 V66" fill="#8A5312"/><path d="M20 58 H56 M68 58 H104 M116 58 H152" stroke-width="1.4"/></g><g fill="#F4EFE2" stroke="#1B1A17" stroke-width="1"><circle cx="39" cy="44" r="6"/><path d="M27 55 Q30 47 39 47 Q48 47 51 55"/><circle cx="87" cy="44" r="6"/><path d="M75 55 Q78 47 87 47 Q96 47 99 55"/><circle cx="135" cy="44" r="6"/><path d="M123 55 Q126 47 135 47 Q144 47 147 55"/></g><path d="M160 66 q4 -12 15 -12 q11 0 13 12" fill="#F4EFE2" stroke="#1B1A17" stroke-width="1"/><path d="M166 66 q3 -8 10 -8 q7 0 9 8" fill="#8A5312" stroke="#1B1A17" stroke-width=".8"/><path d="M8 10 h38" stroke="#F4EFE2" stroke-width="2"/><text x="8" y="8" font-family="Arial Narrow,Arial" font-size="7" letter-spacing="1.3" fill="#F4EFE2">GAZIPUR · 17,000 TAKA</text></svg>`
 };
 
 // ---------- build ----------
@@ -195,7 +195,7 @@ html+='<div class="region-band">'+REGIONS.map(r=>`<div class="region" style="fle
 html+='<div class="numbers">'+NUMBERS.map(n=>`<div class="num"><b>${n.v}</b><span>${n.cap}</span></div>`).join('')+'</div>';
 
 const leads=STORIES.filter(s=>s.section==='lead');
-html+='<section class="headlines">'+leads.map((s,i)=>`<article class="headline"><div class="h-kicker">LEAD ${String(i+1).padStart(2,'0')} · ${REGIONS.find(r=>r.key===s.region).name}<span class="tag">${s.tag}</span></div><div class="h-title">${s.title}</div><div class="h-art">${ART_HEAD[s.art]}</div><div class="h-body">${s.body}</div><div class="h-src">${s.src}</div></article>`).join('')+'</section>';
+html+='<section class="headlines">'+leads.map((s,i)=>{const rc=REGIONS.find(r=>r.key===s.region);return `<article class="headline"><div class="h-kicker">LEAD ${String(i+1).padStart(2,'0')} · ${rc.name}<span class="tag">${s.tag}</span></div><div class="h-title">${s.title}</div><div class="h-art" style="background:${rc.color}">${ART_HEAD[s.art]()}</div><div class="h-body">${s.body}</div><div class="h-src">${s.src}</div></article>`;}).join('')+'</section>';
 
 // map
 const MAP_W=960, MAP_H=132, LON0=-180, LON1=180, LAT0=-58, LAT1=84;
@@ -229,11 +229,13 @@ const PINS=[
 ];
 let pins='';
 PINS.forEach(p=>{const [x,y]=proj(p.lon,p.lat);pins+=`<circle class="pin" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="7"/><text class="pin-label" x="${x.toFixed(1)}" y="${(y+2).toFixed(1)}">${String(p.id).padStart(2,'0')}</text>`;});
-const mapSvg=`<svg class="map-svg" viewBox="0 0 ${MAP_W} ${MAP_H}" preserveAspectRatio="xMidYMid meet">${dots}<g class="map-region"><text x="${proj(-105,55)[0]}" y="18">AMERICAS</text><text x="${proj(15,52)[0]}" y="18">EUROPE</text><text x="${proj(20,5)[0]}" y="${MAP_H-6}">AFRICA</text><text x="${proj(95,55)[0]}" y="18">ASIA</text><text x="${proj(135,-20)[0]}" y="${MAP_H-6}">OCEANIA</text></g>${pins}</svg>`;
+const POLY_REGION=['AM','AM','AM','AM','EU','AF','ME','AS','AS','AS','OC','OC'];
+const landFills=POLYS.map((poly,i)=>`<polygon points="${poly.map(([lo,la])=>proj(lo,la).map(v=>v.toFixed(1)).join(',')).join(' ')}" fill="${REGIONS.find(r=>r.key===POLY_REGION[i]).color}"/>`).join('');
+const mapSvg=`<svg class="map-svg" viewBox="0 0 ${MAP_W} ${MAP_H}" preserveAspectRatio="xMidYMid meet">${landFills}${dots}<g class="map-region"><text x="${proj(-105,55)[0]}" y="18">AMERICAS</text><text x="${proj(15,52)[0]}" y="18">EUROPE</text><text x="${proj(20,5)[0]}" y="${MAP_H-6}">AFRICA</text><text x="${proj(95,55)[0]}" y="18">ASIA</text><text x="${proj(135,-20)[0]}" y="${MAP_H-6}">OCEANIA</text></g>${pins}</svg>`;
 html+=`<section class="map-section"><div class="sec-head"><span class="sec-no">03</span><h2>Where it happened</h2><span class="rule"></span><span class="aside">${PINS.length} numbered pins · story numbers</span></div><div class="map-holder">${mapSvg}<div class="map-key">Dot matrix: rough equirectangular world</div><div class="map-note">Pin 07 = Hormuz · 14 = Washington · 20 = Taipei · 31 = Honiara</div></div></section>`;
 
 const cards=STORIES.filter(s=>s.section==='card');
-html+=`<section class="cards-section"><div class="sec-head"><span class="sec-no">04</span><h2>Twelve stories that moved the day</h2><span class="rule"></span><span class="aside">Picture · fact · source</span></div><div class="cards-grid">`+cards.map(s=>`<article class="card"><div class="card-art">${ICONS[s.art]}</div><div class="card-txt"><div class="card-title">${s.title}</div><div class="card-body">${s.body}</div><div class="card-meta"><b>${String(s.id).padStart(2,'0')} · ${s.tag}</b> · ${s.src}</div></div></article>`).join('')+'</div></section>';
+html+=`<section class="cards-section"><div class="sec-head"><span class="sec-no">04</span><h2>Twelve stories that moved the day</h2><span class="rule"></span><span class="aside">Picture · fact · source</span></div><div class="cards-grid">`+cards.map(s=>`<article class="card" style="border-top-color:${REGIONS.find(r=>r.key===s.region).color}"><div class="card-art">${ICONS[s.art]}</div><div class="card-txt"><div class="card-title">${s.title}</div><div class="card-body">${s.body}</div><div class="card-meta"><b>${String(s.id).padStart(2,'0')} · ${s.tag}</b> · ${s.src}</div></div></article>`).join('')+'</div></section>';
 
 const briefs=STORIES.filter(s=>s.section==='brief');
 html+=`<section class="briefs-section"><div class="sec-head"><span class="sec-no">05</span><h2>Around the world in one line</h2><span class="rule"></span><span class="aside">${briefs.length} briefs · source in small caps</span></div><div class="briefs-grid">`+briefs.map(s=>`<div class="brief"><span class="n">${String(s.id).padStart(2,'0')}</span>${s.title} <span class="src">${s.src}</span></div>`).join('')+'</div></section>';
