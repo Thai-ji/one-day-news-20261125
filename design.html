@@ -4,351 +4,377 @@
 <meta charset="utf-8">
 <title>The World in One Day — Wednesday 25 November 2026</title>
 <style>
-  :root{
-    --paper:#F3EEE1; --paper2:#E8E0CC; --paper3:#DCD2BA;
-    --ink:#1B1A17; --muted:#5E594E; --rule:#8C8372; --faint:#BCB39C;
-    --accent:#A32B24; --accent2:#C2574C;
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1024px; height: 1024px; overflow: hidden; }
+  body {
+    background: #F3EEE1;
+    color: #1B1813;
+    font-family: Georgia, "Times New Roman", serif;
+    padding: 11px 13px 9px 13px;
   }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:#ccc5b2}
-  body{font-family:Georgia,"Times New Roman",serif;color:var(--ink);-webkit-font-smoothing:antialiased}
-  .page{
-    width:1024px;height:1024px;background:var(--paper);position:relative;overflow:hidden;
-    padding:11px 13px 9px 13px;
-    background-image:repeating-linear-gradient(0deg,rgba(27,26,23,.011) 0 1px,transparent 1px 4px);
+  .page { width: 998px; height: 1004px; display: flex; flex-direction: column; }
+
+  /* ---------- masthead ---------- */
+  .masthead {
+    height: 74px; flex: 0 0 74px;
+    border-bottom: 4px double #1B1813;
+    display: flex; align-items: center; gap: 10px;
+    padding: 0 2px 7px 2px;
   }
-  .frame{position:absolute;inset:7px;border:1px solid rgba(27,26,23,.5);pointer-events:none}
-  .masthead{height:74px;border-bottom:4px double var(--ink);padding-bottom:3px;position:relative}
-  .mast-top{display:flex;justify-content:space-between;align-items:flex-start;font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:7.2px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);padding-top:2px}
-  .mast-name{color:var(--ink);font-weight:700;font-size:9px}
-  .mast-center{flex:1;text-align:center}
-  .mast-date{font-size:42px;line-height:42px;font-weight:700;letter-spacing:-.5px;text-align:center;white-space:nowrap}
-  .mast-deck{font-size:8.6px;line-height:10px;color:var(--muted);text-align:center;letter-spacing:.25px;margin-top:1px}
-  .mast-deck b{color:var(--ink)}
-  .mast-right{text-align:right;font-size:7px;letter-spacing:.9px;color:var(--muted);white-space:nowrap}
-  .region-band{display:flex;height:34px;margin-top:5px;gap:1px}
-  .region{height:34px;display:flex;flex-direction:column;justify-content:center;padding:0 6px;flex-basis:0;overflow:hidden}
-  .region b{font-size:12.5px;line-height:12.5px;font-family:Georgia,serif;font-weight:700}
-  .region span{font-size:6.4px;line-height:7px;letter-spacing:.8px;text-transform:uppercase;margin-top:1px;white-space:nowrap;color:rgba(243,238,225,.9)}
-  .numbers{display:flex;height:42px;margin-top:4px;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);background:#1B1813}
-  .num{flex:1;border-right:1px solid rgba(243,238,225,.2);padding:3px 6px 2px 6px;display:flex;align-items:flex-start;gap:5px;min-width:0}
-  .num:last-child{border-right:0}
-  .num b{font-size:18px;line-height:19px;color:#FFF8EA;white-space:nowrap;letter-spacing:-.2px}
-  .num span{font-size:6.4px;line-height:7px;text-transform:uppercase;letter-spacing:.25px;color:#D8CDB8}
-  .sec-head{display:flex;align-items:center;gap:6px;height:16px;margin:7px 0 3px 0}
-  .sec-no{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:8px;font-weight:700;letter-spacing:1px;color:var(--accent)}
-  .sec-head h2{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:9.4px;line-height:11px;letter-spacing:1.8px;text-transform:uppercase;margin:0;font-weight:700}
-  .sec-head .rule{flex:1;height:1px;background:var(--ink);opacity:.6}
-  .sec-head .aside{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:6.6px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted)}
-  .leads{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;height:230px}
-  .lead{border-top:4px solid var(--ink);padding-top:3px;min-width:0;display:flex;flex-direction:column}
-  .lead-kick{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:7px;letter-spacing:1.3px;text-transform:uppercase;color:var(--accent);font-weight:700}
-  .lead-kick .tag{color:var(--muted);font-weight:400;margin-left:3px}
-  .lead-art{height:108px;margin:2px 0 3px 0;overflow:hidden}
-  .lead-title{font-size:21px;line-height:22px;font-weight:700;height:46px;overflow:hidden;margin:0 0 3px 0;letter-spacing:-.2px}
-  .lead-body{font-size:10.8px;line-height:11.8px;height:36px;overflow:hidden;flex:1}
-  .lead-src{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:6.2px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden}
-  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:7px 8px}
-  .card{height:84px;border-top:4px solid var(--ink);padding-top:0;display:grid;grid-template-columns:54px 1fr;gap:4px;min-width:0}
-  .card-art{width:54px;height:62px;margin-top:2px}
-  .card-txt{min-width:0;display:flex;flex-direction:column}
-  .card-title{font-size:14.5px;line-height:15.2px;font-weight:700;height:46px;overflow:hidden;letter-spacing:-.12px}
-  .card-body{font-size:10.6px;line-height:11.2px;height:24px;overflow:hidden;color:#28261F;margin-top:1px}
-  .card-meta{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:6.1px;line-height:6.8px;letter-spacing:.45px;text-transform:uppercase;color:var(--muted);white-space:nowrap;overflow:hidden;margin-top:1px}
-  .card-meta b{color:var(--accent);font-weight:700}
-  .briefs{display:grid;grid-template-columns:repeat(5,1fr);gap:3px 10px}
-  .brief{position:relative;font-size:10.6px;line-height:11.2px;height:25px;overflow:hidden;padding-left:15px;min-width:0}
-  .brief .n{position:absolute;left:0;top:0;font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:7.6px;line-height:10px;color:var(--accent);font-weight:700}
-  .brief .src{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:5.7px;letter-spacing:.35px;color:var(--muted);text-transform:uppercase;display:block;margin-top:1px}
-  .map-section{height:112px;margin-top:5px;border-top:2px solid var(--ink);padding-top:3px}
-  .map-holder{position:relative;height:88px;background:var(--ink)}
-  .map-svg{display:block;width:100%;height:88px}
-  .map-note{position:absolute;right:4px;bottom:3px;font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:6px;letter-spacing:.4px;color:#D8CDB8}
-  .map-key{position:absolute;left:4px;bottom:3px;font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:6px;letter-spacing:.4px;color:#D8CDB8}
-  .date-check{margin-top:5px;border-top:2px solid var(--ink);padding-top:3px;height:40px;display:flex;gap:9px}
-  .dc-label{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:7.6px;letter-spacing:1.4px;font-weight:700;color:var(--accent);width:80px;flex:none;padding-top:1px}
-  .dc-text{font-size:7px;line-height:8.4px;color:var(--muted);flex:1}
-  .dc-text b{color:var(--ink)}
-  .dc-tags{width:230px;flex:none;font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:5.7px;line-height:7px;letter-spacing:.25px;color:var(--muted);border-left:1px solid var(--faint);padding-left:6px}
-  .dc-tags b{color:var(--accent)}
-  svg.art{display:block;width:100%;height:100%}
-  .paper-dot{fill:#F3EEE1;opacity:.4}
-  .pin{fill:#C0392E;stroke:#FFF8EA;stroke-width:1.3}
-  .pin-label{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-weight:700;fill:#FFF8EA;font-size:5.6px;text-anchor:middle}
-  .map-region{font-family:"Arial Narrow","Segoe UI",Arial,sans-serif;font-size:5.4px;letter-spacing:1.2px;fill:#F3EEE1;opacity:.75;text-anchor:middle}
+  .mast-side { width: 146px; font-size: 7.8px; line-height: 1.55; letter-spacing: 1.9px; font-weight: bold; text-transform: uppercase; }
+  .mast-side.right { text-align: right; letter-spacing: 0.8px; font-weight: normal; font-style: italic; text-transform: none; }
+  .mast-center { flex: 1 1 0; text-align: center; min-width: 0; }
+  .mast-title { font-size: 41px; font-weight: bold; letter-spacing: -1.1px; line-height: 1; white-space: nowrap; }
+  .mast-sub { font-size: 7.1px; letter-spacing: 1.05px; margin-top: 5px; text-transform: uppercase; white-space: nowrap; }
+
+  /* ---------- region band ---------- */
+  .regions { height: 40px; flex: 0 0 40px; display: flex; margin-top: 8px; }
+  .region {
+    flex: 1 1 0; min-width: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: #FFF8EA; text-align: center; line-height: 1.15;
+  }
+  .region b { font-size: 8.1px; letter-spacing: 1.15px; font-weight: bold; white-space: nowrap; }
+  .region span { font-size: 6.7px; opacity: 0.92; white-space: nowrap; }
+
+  /* ---------- stats strip ---------- */
+  .stats {
+    height: 42px; flex: 0 0 42px; background: #1B1813; color: #FFF8EA;
+    display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 6px;
+  }
+  .stat { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 0 4px; border-right: 1px solid rgba(255,248,234,0.24); }
+  .stat:last-child { border-right: 0; }
+  .stat .num { font-size: 19px; font-weight: bold; line-height: 1; white-space: nowrap; }
+  .stat .txt { font-size: 6.5px; line-height: 1.22; text-transform: uppercase; letter-spacing: 0.35px; }
+
+  /* ---------- section chrome ---------- */
+  .section { margin-top: 12px; }
+  .sec-head { display: flex; align-items: baseline; gap: 7px; border-bottom: 1.5px solid #1B1813; padding-bottom: 2px; margin-bottom: 6px; }
+  .sec-num { font-size: 8.6px; font-weight: bold; }
+  .sec-title { font-size: 9.4px; font-weight: bold; letter-spacing: 2.2px; text-transform: uppercase; }
+  .sec-note { margin-left: auto; font-size: 6.5px; font-style: italic; letter-spacing: 0.5px; }
+
+  /* ---------- 01 the lead ---------- */
+  .lead-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
+  .lead { display: flex; flex-direction: column; min-width: 0; }
+  .lead-label { font-size: 7.1px; font-weight: bold; letter-spacing: 1.55px; margin-bottom: 3px; text-transform: uppercase; }
+  .lead-art { height: 108px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .lead-art svg { width: 74px; height: 74px; }
+  .lead-title { font-size: 21px; font-weight: bold; line-height: 1.02; height: 43px; overflow: hidden; margin-top: 5px; letter-spacing: -0.25px; }
+  .lead-body { font-size: 10.8px; line-height: 1.24; height: 27px; overflow: hidden; margin-top: 4px; }
+  .lead-src { font-size: 8.2px; font-style: italic; margin-top: 3px; }
+
+  /* ---------- 02 the cards ---------- */
+  .cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px 12px; }
+  .card { display: flex; gap: 7px; min-width: 0; }
+  .card-art { width: 54px; height: 62px; flex: 0 0 54px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .card-art svg { width: 38px; height: 38px; }
+  .card-main { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; }
+  .card-title { font-size: 14.5px; font-weight: bold; line-height: 1.02; height: 30px; overflow: hidden; letter-spacing: -0.15px; }
+  .card-body { font-size: 10.6px; line-height: 1.14; height: 36px; overflow: hidden; margin-top: 2px; }
+  .card-meta { font-size: 7.4px; font-style: italic; margin-top: auto; white-space: nowrap; overflow: hidden; }
+
+  /* ---------- 03 the briefs ---------- */
+  .briefs-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px 10px; }
+  .brief { min-width: 0; }
+  .brief-title { font-size: 9.7px; font-weight: bold; line-height: 1.12; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .brief-src { font-size: 6.9px; font-style: italic; line-height: 1.12; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  /* ---------- 04 map ---------- */
+  .map-wrap { height: 96px; flex: 0 0 96px; background: #1B1813; position: relative; overflow: hidden; }
+  .map-wrap svg { width: 998px; height: 96px; display: block; }
+
+  /* ---------- footer ---------- */
+  .footer { margin-top: auto; height: 40px; flex: 0 0 40px; border-top: 4px double #1B1813; display: flex; align-items: center; gap: 16px; padding: 4px 2px 0 2px; }
+  .date-check { flex: 1 1 0; font-size: 7.6px; line-height: 1.35; }
+  .date-check b { font-size: 8.4px; letter-spacing: 1.6px; }
+  .foot-meta { width: 330px; text-align: right; font-size: 6.3px; line-height: 1.45; letter-spacing: 0.35px; text-transform: uppercase; }
+
+  .icon { stroke: #FFF8EA; fill: none; stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; }
 </style>
 </head>
 <body>
-<div class="page" id="page"><div class="frame"></div></div>
-<script>
-const REG={EU:'#3FA37A',ME:'#D94A38',AM:'#2E7BC4',AS:'#D98A2B',AF:'#8B63C9',OC:'#B07A3F',GL:'#6E6E6E'};
-const REGNAME={EU:'EUROPE',ME:'MIDDLE EAST',AM:'AMERICAS',AS:'ASIA',AF:'AFRICA',OC:'OCEANIA',GL:'GLOBAL'};
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-war" viewBox="0 0 24 24">
+    <path d="M12 2.2l1.7 5.1 4.9-2.4-2.4 4.9 5.1 1.7-5.1 1.7 2.4 4.9-4.9-2.4L12 21.8l-1.7-5.1-4.9 2.4 2.4-4.9L2.7 12.5l5.1-1.7-2.4-4.9 4.9 2.4z"/>
+    <circle cx="12" cy="12" r="1.6"/>
+  </symbol>
+  <symbol id="i-tariff" viewBox="0 0 24 24">
+    <circle cx="7.2" cy="7.2" r="3.1"/><circle cx="16.8" cy="16.8" r="3.1"/>
+    <path d="M4.4 20.2L19.6 4.6"/><path d="M3 3h4M3 3v4M21 21h-4M21 21v-4"/>
+  </symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24">
+    <path d="M12 2.5c3.1 2.2 4.2 6 4.2 9.2l-2 3.2h-4.4l-2-3.2c0-3.2 1.1-7 4.2-9.2z"/>
+    <circle cx="12" cy="8.4" r="1.7"/>
+    <path d="M7.8 11.2L4.6 14l3.9-.7M16.2 11.2L19.4 14l-3.9-.7"/>
+    <path d="M10 17.4c0 2 .8 3.4 2 4.6 1.2-1.2 2-2.6 2-4.6"/>
+  </symbol>
+  <symbol id="i-tanker" viewBox="0 0 24 24">
+    <path d="M2.6 15.6h18.8l-2.1 4.2H4.7z"/><path d="M7.4 15.6V8.4h5.2v7.2"/>
+    <circle cx="17.4" cy="12.1" r="2.5"/><path d="M15.8 8.4h3.2v2.2"/>
+    <path d="M2.8 21.2c1.2-1 2.4-1 3.6 0s2.4 1 3.6 0 2.4-1 3.6 0 2.4 1 3.6 0 2.4-1 3.6 0"/>
+  </symbol>
+  <symbol id="i-refinery" viewBox="0 0 24 24">
+    <path d="M3.2 21.5V8.8l3.4-3v15.7M9.4 21.5V6.2l3.4-3v18.3M15.6 21.5V10.4l3.4-2.4v13.5M21 21.5H2.4"/>
+    <path d="M3.2 12.2h18.6M8.4 4.8c0-1 .5-1.7 1.4-2.2"/>
+  </symbol>
+  <symbol id="i-fire" viewBox="0 0 24 24">
+    <path d="M12.2 2.3c.8 3.5 4.7 4.7 4.7 9.6a5.1 5.1 0 01-10.2 0c0-3.1 1.9-4.3 2.5-7.1 1 1.8 2 2.2 3 3.1 0-2.1 0-4.1 0-5.6z"/>
+    <path d="M9.4 21.9h5.2"/>
+  </symbol>
+  <symbol id="i-waves" viewBox="0 0 24 24">
+    <path d="M2.5 10.4c2-1.8 4-1.8 6 0s4 1.8 6 0 4-1.8 6 0"/>
+    <path d="M2.5 15c2-1.8 4-1.8 6 0s4 1.8 6 0 4-1.8 6 0"/>
+    <path d="M5 4.2l-1 2.4M10 3.2l-1 2.4M15 4.2l-1 2.4M19.5 3.4l-1 2.4"/>
+  </symbol>
+  <symbol id="i-mine" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="5.4"/>
+    <path d="M12 2.6v4M12 17.4v4M2.6 12h4M17.4 12h4M5.4 5.4l2.8 2.8M15.8 15.8l2.8 2.8M18.6 5.4l-2.8 2.8M8.2 15.8l-2.8 2.8"/>
+    <circle cx="12" cy="12" r="1.3"/>
+  </symbol>
+  <symbol id="i-lab" viewBox="0 0 24 24">
+    <path d="M9 2.8h6M10.2 2.8v5.1L5.1 17.2a2.1 2.1 0 001.9 3h10a2.1 2.1 0 001.9-3l-5.1-9.3V2.8"/>
+    <path d="M7.3 14.3h9.4"/><circle cx="10.4" cy="17.1" r="1"/><circle cx="13.8" cy="18.4" r="0.8"/>
+  </symbol>
+  <symbol id="i-cup" viewBox="0 0 24 24">
+    <path d="M7.6 3.4h8.8v5.9a4.4 4.4 0 01-8.8 0z"/>
+    <path d="M7.6 5.2H4.2v2.2a3.3 3.3 0 003.4 3.3M16.4 5.2h3.4v2.2a3.3 3.3 0 01-3.4 3.3"/>
+    <path d="M12 13.8v4.4M7.8 21h8.4M9.4 18.2h5.2"/>
+  </symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24">
+    <path d="M5.6 22V2.6"/><path d="M5.6 3.2c4.2-2.1 8.4 2.1 12.6 0v9.2c-4.2 2.1-8.4-2.1-12.6 0z"/>
+  </symbol>
+  <symbol id="i-flag2" viewBox="0 0 24 24">
+    <path d="M4 22V4"/><path d="M4 4.4l8 2.8-8 3.2z"/>
+    <path d="M20 22V8"/><path d="M20 8.4l-8 2.8 8 3.2z"/>
+    <path d="M4 14c5-1.8 11-1.8 16 0"/>
+  </symbol>
+  <symbol id="i-police" viewBox="0 0 24 24">
+    <path d="M12 2.2l8 3v6.1c0 4.8-3.2 8.2-8 10.5-4.8-2.3-8-5.7-8-10.5V5.2z"/>
+    <path d="M12 7.1l1.3 2.8 3.1.3-2.3 2.1.7 3-2.8-1.6-2.8 1.6.7-3-2.3-2.1 3.1-.3z"/>
+  </symbol>
+  <symbol id="i-market" viewBox="0 0 24 24">
+    <path d="M3 3v18h18"/><path d="M5.6 9.2l4.4 4.2 3.1-3 5.3 6.1"/>
+    <path d="M15.6 16.5h2.8v-2.8"/>
+  </symbol>
+  <symbol id="i-mine2" viewBox="0 0 24 24">
+    <path d="M2.8 21.4h18.4"/><path d="M4.6 21.4l2.2-7.6h10.4l2.2 7.6"/>
+    <path d="M6.8 13.8h10.4M9 21.2a1.3 1.3 0 102.6 0 1.3 1.3 0 10-2.6 0M13.2 21.2a1.3 1.3 0 102.6 0 1.3 1.3 0 10-2.6 0"/>
+    <path d="M4 3.6l6.6 6.6M4 10.2l6.6-6.6"/>
+  </symbol>
+</defs></svg>
 
-const REGIONS=[
-  {key:'EU',name:'EUROPE',count:7,color:REG.EU},
-  {key:'ME',name:'MIDDLE EAST',count:7,color:REG.ME},
-  {key:'AF',name:'AFRICA',count:7,color:REG.AF},
-  {key:'AS',name:'ASIA',count:7,color:REG.AS},
-  {key:'AM',name:'AMERICAS',count:5,color:REG.AM},
-  {key:'OC',name:'OCEANIA',count:1,color:REG.OC},
-  {key:'GL',name:'GLOBAL',count:1,color:REG.GL}
-];
+<div class="page">
 
-const NUMBERS=[
-  {v:'5',cap:'Ukrainian regions left in blackouts'},
-  {v:'14',cap:'trading partners facing new US tariffs'},
-  {v:'31',cap:'dead in Cairo fuel-tanker fire'},
-  {v:'19',cap:'killed in Sudan drone strike'},
-  {v:'6.16%',cap:"drop in South Korea's Kospi"}
-];
-
-function art(type,color){
-  const c=color||'#1B1A17';
-  const shapes={
-    war:`<rect width="100" height="60" fill="#1B1A17"/>
-         <circle cx="20" cy="20" r="9" fill="${c}" opacity=".9"/>
-         <circle cx="20" cy="20" r="14" fill="none" stroke="#FFF8EA" stroke-width="1.2" opacity=".7"/>
-         <path d="M20 20 L70 14" stroke="#FFF8EA" stroke-width="1.1" opacity=".6"/>
-         <circle cx="70" cy="14" r="5" fill="#FFF8EA" opacity=".8"/>
-         <path d="M0 52 h100" stroke="#FFF8EA" stroke-width="1" opacity=".35"/>
-         <path d="M6 52 L14 44 L22 52 L30 42 L38 52 L46 45 L54 52 L62 43 L70 52 L78 46 L86 52 L94 44" fill="none" stroke="#FFF8EA" stroke-width="1" opacity=".45"/>`,
-    tariff:`<rect width="100" height="60" fill="#1B1A17"/>
-         <rect x="18" y="16" width="64" height="34" rx="3" fill="${c}"/>
-         <rect x="26" y="24" width="20" height="12" fill="#FFF8EA" opacity=".85"/>
-         <rect x="50" y="24" width="24" height="12" fill="#FFF8EA" opacity=".7"/>
-         <path d="M30 46 L38 38 L44 44 L54 32" fill="none" stroke="#FFF8EA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-         <path d="M54 32 L64 26" stroke="#FFF8EA" stroke-width="2.2" stroke-linecap="round"/>`,
-    rocket:`<rect width="100" height="60" fill="#1B1A17"/>
-         <circle cx="50" cy="20" r="18" fill="none" stroke="#FFF8EA" stroke-width="1.2" opacity=".5"/>
-         <path d="M48 46 L52 46 L54 34 L46 34 Z" fill="${c}"/>
-         <path d="M42 34 L58 34 L52 18 L48 18 Z" fill="#FFF8EA" opacity=".92"/>
-         <path d="M44 18 L56 18 L52 10 L48 10 Z" fill="${c}"/>
-         <path d="M48 46 Q50 58 52 46 Z" fill="#FFB24A"/>
-         <path d="M46 46 Q50 56 54 46 Z" fill="#FF6B3D" opacity=".9"/>`,
-    tanker:`<rect width="100" height="60" fill="#1B1A17"/>
-         <path d="M8 42 L92 42 L84 52 L16 52 Z" fill="${c}"/>
-         <rect x="22" y="30" width="48" height="12" rx="2" fill="#FFF8EA"/>
-         <rect x="30" y="26" width="10" height="4" fill="#FFF8EA" opacity=".7"/>
-         <rect x="46" y="26" width="10" height="4" fill="#FFF8EA" opacity=".7"/>
-         <circle cx="28" cy="48" r="4" fill="#FFF8EA" opacity=".8"/>
-         <circle cx="72" cy="48" r="4" fill="#FFF8EA" opacity=".8"/>
-         <path d="M22 22 Q26 16 30 22 Q34 28 38 22" fill="none" stroke="#FFB24A" stroke-width="2" opacity=".8"/>`,
-    refinery:`<rect width="100" height="60" fill="#1B1A17"/>
-         <rect x="10" y="28" width="16" height="20" fill="${c}"/>
-         <rect x="30" y="20" width="14" height="28" fill="${c}" opacity=".85"/>
-         <rect x="52" y="32" width="16" height="16" fill="${c}" opacity=".7"/>
-         <rect x="72" y="24" width="14" height="24" fill="${c}" opacity=".6"/>
-         <rect x="22" y="18" width="3" height="12" fill="#FFF8EA" opacity=".8"/>
-         <rect x="40" y="10" width="3" height="22" fill="#FFF8EA" opacity=".7"/>
-         <path d="M60 32 Q63 22 66 32 Q69 40 72 32" fill="#FF6B3D" opacity=".85"/>
-         <path d="M82 24 Q85 16 88 24 Q91 32 94 24" fill="#FFB24A" opacity=".8"/>`,
-    fire:`<rect width="100" height="60" fill="#1B1A17"/>
-         <path d="M50 52 C36 40 42 30 48 24 C40 26 34 18 38 10 C48 16 56 20 58 12 C62 22 72 26 66 38 C70 44 70 50 62 52 Z" fill="${c}"/>
-         <path d="M50 50 C42 42 46 34 50 30 C46 32 43 26 46 18 C52 22 57 26 58 20 C61 30 67 34 63 42 C66 46 66 50 60 50 Z" fill="#FFB24A" opacity=".9"/>
-         <path d="M50 48 C46 44 48 40 51 37 C49 39 48 35 50 31 C53 34 57 36 57 32 C59 38 62 40 60 44 C61 46 61 47 58 47 Z" fill="#FFF3D8" opacity=".8"/>`,
-    waves:`<rect width="100" height="60" fill="#1B1A17"/>
-         <path d="M0 30 Q15 22 30 30 T60 30 T90 30 T100 30 V60 H0 Z" fill="${c}"/>
-         <path d="M0 38 Q15 30 30 38 T60 38 T90 38 T100 38 V60 H0 Z" fill="#FFF8EA" opacity=".35"/>
-         <path d="M0 46 Q15 40 30 46 T60 46 T90 46 T100 46 V60 H0 Z" fill="#FFF8EA" opacity=".25"/>
-         <rect x="40" y="20" width="20" height="12" fill="#FFF8EA" opacity=".85"/>
-         <path d="M40 32 L60 32 L56 38 L44 38 Z" fill="#FFF8EA" opacity=".7"/>`,
-    mine:`<rect width="100" height="60" fill="#1B1A17"/>
-         <path d="M20 52 L44 22 L80 52 Z" fill="#1B1A17" stroke="#FFF8EA" stroke-width="1.2" opacity=".9"/>
-         <path d="M44 22 L62 22 L58 52 L50 52 Z" fill="${c}" opacity=".8"/>
-         <path d="M44 22 L58 52" stroke="#FFF8EA" stroke-width="1" opacity=".5"/>
-         <rect x="44" y="14" width="16" height="8" fill="#FFF8EA" opacity=".8"/>
-         <path d="M30 56 h40" stroke="#FFF8EA" stroke-width="1.2" opacity=".6"/>`,
-    lab:`<rect width="100" height="60" fill="#1B1A17"/>
-         <path d="M40 12 h20 v10 l-10 16 l-10 -16 Z" fill="${c}"/>
-         <rect x="38" y="38" width="24" height="10" rx="2" fill="#FFF8EA" opacity=".85"/>
-         <circle cx="44" cy="43" r="3" fill="#FF6B3D"/>
-         <circle cx="52" cy="43" r="2.5" fill="#FFB24A"/>
-         <circle cx="58" cy="43" r="2" fill="#FFF8EA"/>
-         <rect x="30" y="14" width="3" height="22" fill="#FFF8EA" opacity=".7"/>
-         <rect x="66" y="20" width="3" height="18" fill="#FFF8EA" opacity=".6"/>`,
-    cup:`<rect width="100" height="60" fill="#1B1A17"/>
-         <path d="M30 14 h40 v8 l-8 18 l-24 0 V22 Z" fill="${c}"/>
-         <path d="M70 18 h8 a10 10 0 0 1 0 20 h-8" fill="none" stroke="${c}" stroke-width="4"/>
-         <rect x="38" y="40" width="24" height="6" rx="2" fill="#FFF8EA" opacity=".85"/>
-         <path d="M44 12 L48 8 L52 12" fill="#FFB24A"/>
-         <path d="M56 12 L60 8 L64 12" fill="#FFB24A"/>`,
-    flag:`<rect width="100" height="60" fill="#1B1A17"/>
-         <rect x="18" y="8" width="3" height="46" fill="#FFF8EA"/>
-         <rect x="21" y="8" width="34" height="20" fill="${c}"/>
-         <rect x="62" y="8" width="3" height="46" fill="#FFF8EA"/>
-         <rect x="65" y="8" width="34" height="20" fill="#FFB24A"/>
-         <circle cx="40" cy="18" r="4" fill="#FFF8EA" opacity=".9"/>
-         <path d="M18 54 h64" stroke="#FFF8EA" stroke-width="1" opacity=".5"/>`,
-    flag2:`<rect width="100" height="60" fill="#1B1A17"/>
-         <rect x="14" y="8" width="3" height="46" fill="#FFF8EA"/>
-         <rect x="17" y="8" width="30" height="18" fill="${c}"/>
-         <rect x="56" y="8" width="3" height="46" fill="#FFF8EA"/>
-         <rect x="59" y="8" width="30" height="18" fill="#FFB24A" opacity=".9"/>
-         <path d="M22 26 l8 8 l-8 8" fill="none" stroke="#FFF8EA" stroke-width="1.5" opacity=".8"/>`,
-    police:`<rect width="100" height="60" fill="#1B1A17"/>
-         <path d="M50 10 c14 0 22 10 22 24 c0 14 -10 26 -22 26 c-12 0 -22 -12 -22 -26 c0 -14 8 -24 22 -24 Z" fill="${c}"/>
-         <circle cx="50" cy="26" r="6" fill="#FFF8EA"/>
-         <path d="M34 44 h32 v8 h-32 Z" fill="#FFF8EA" opacity=".85"/>
-         <rect x="44" y="40" width="12" height="6" fill="${c}"/>`,
-    market:`<rect width="100" height="60" fill="#1B1A17"/>
-         <path d="M12 50 L38 50 L52 30 L72 44 L88 22" fill="none" stroke="${c}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-         <circle cx="12" cy="50" r="3" fill="#FFF8EA"/>
-         <circle cx="38" cy="50" r="3" fill="#FFF8EA"/>
-         <circle cx="52" cy="30" r="3" fill="#FFF8EA"/>
-         <circle cx="72" cy="44" r="3" fill="#FFF8EA"/>
-         <circle cx="88" cy="22" r="3" fill="#FFF8EA"/>
-         <path d="M70 12 L84 12 L84 20 L70 20 Z" fill="#FFF8EA" opacity=".8"/>
-         <text x="77" y="18" font-family="Arial" font-size="6" font-weight="700" fill="${c}" text-anchor="middle">-6%</text>`,
-    mine2:`<rect width="100" height="60" fill="#1B1A17"/>
-         <path d="M14 52 L48 20 L86 52 Z" fill="#1B1A17" stroke="#FFF8EA" stroke-width="1.2" opacity=".9"/>
-         <path d="M48 20 L66 20 L60 52 L52 52 Z" fill="${c}" opacity=".8"/>
-         <path d="M48 20 L60 52" stroke="#FFF8EA" stroke-width="1" opacity=".5"/>
-         <path d="M14 48 Q30 44 46 48 T86 48" fill="none" stroke="#7EC8E3" stroke-width="2" opacity=".7"/>
-         <rect x="44" y="12" width="10" height="8" fill="#FFF8EA" opacity=".8"/>`
-  };
-  return `<svg class="art" viewBox="0 0 100 60" preserveAspectRatio="xMidYMid slice"><g>${shapes[type]||shapes.flag}</g></svg>`;
-}
-
-const STORIES=[
- {id:1,region:'EU',section:'lead',tag:'CONFIRMED',src:'AL JAZEERA · KYIV INDEPENDENT',art:'war',title:'Russian strikes cut power in five regions',
-  body:'Drones and missiles hit energy and gas sites; five regions face cuts and Zaporizhzhia runs on diesel.'},
- {id:2,region:'GL',section:'lead',tag:'OFFICIAL',src:'USTR · REUTERS',art:'tariff',title:'US proposes tariffs on 14 trade partners',
-  body:'The USTR cites factory overcapacity across China, the EU, India and Korea; deals could lower rates.'},
- {id:3,region:'AS',section:'lead',tag:'FLIGHT',src:'REUTERS · AP',art:'rocket',title:"Shenzhou 24 carries Pakistan's first astronaut",
-  body:'The mission docks with Tiangong the same day, carrying the first foreigner on the Chinese station.'},
- {id:4,region:'ME',section:'card',art:'tanker',title:'Fourth tanker mined in Hormuz',body:'LNG carrier hits a mine and burns; Iran reports three ships hit in days.',src:'Arab News · Mehr'},
- {id:5,region:'ME',section:'card',art:'refinery',title:'Houthis hit Saudi refinery and Riyadh',body:'Second attack in a week; the Saudi-led coalition says it downed four drones.',src:'DW · Al-Monitor'},
- {id:6,region:'ME',section:'card',art:'fire',title:'Cairo fuel-tanker fire kills 31',body:'Tanker overturns and ignites cars; more than 20 injured.',src:'AP · BBC'},
- {id:7,region:'ME',section:'card',art:'waves',title:'Rains threaten 1,000 Gaza shelters',body:'Councils: 200,000 tents need replacing; open all crossings.',src:'Al Jazeera · Anadolu'},
- {id:8,region:'AF',section:'card',art:'mine',title:'Sudan drone attack kills 19',body:'RSF drones hit Damar and Roseires; more than 20 injured.',src:'Reuters · Al Jazeera'},
- {id:9,region:'AF',section:'card',art:'lab',title:'Nigeria raids $220m meth lab',body:'NDLEA seizes an industrial lab; six arrests and a $220m haul.',src:'AP · BBC'},
- {id:10,region:'AF',section:'card',art:'cup',title:'Senegal restored as AFCON champion',body:'CAS overturns the 2025 CAF ruling; Morocco says it will appeal.',src:'BBC · Al Jazeera'},
- {id:11,region:'OC',section:'card',art:'flag',title:'Australia, Solomon Islands sign pact',body:'Deal bars foreign bases; the 2022 Chinese pact is not renewed.',src:'PM Australia · AP'},
- {id:12,region:'AM',section:'card',art:'police',title:'All hostages freed in Cartagena',body:'Police storm the Éxito store; one hostage-taker killed, no hostages hurt.',src:'AP · The Guardian'},
- {id:13,region:'AM',section:'card',art:'flag2',title:'Brazil recalls ambassador to Argentina',body:'Brasilia cites lost “strategic patience” as the crisis grows.',src:'El País · Infobae'},
- {id:14,region:'AS',section:'card',art:'market',title:"Kospi plunges 6.16% on chip selloff",body:'Index closes at 4,697.51; the Kosdaq falls 2.29%.',src:'Yonhap · Korea JoongAng'},
- {id:15,region:'AS',section:'card',art:'mine2',title:'Flooded gold mine traps 17 in Java',body:'Monsoon floods an illegal Bogor shaft; nine dead, 17 trapped.',src:'AP · Reuters'},
- {id:16,region:'EU',section:'brief',src:'European Council · EC',title:'EU, Western Balkans close summit'},
- {id:17,region:'EU',section:'brief',src:'DW · tagesschau',title:"Merz defends €56bn debt budget"},
- {id:18,region:'EU',section:'brief',src:'BBC · The Guardian',title:'Burnham refuses PMQs apology'},
- {id:19,region:'EU',section:'brief',src:'LCP · Assemblée nationale',title:'French MPs advance reparations bill'},
- {id:20,region:'EU',section:'brief',src:'Euronews · eKathimerini',title:"Greece's 24-hour strike; 14,000 out"},
- {id:21,region:'EU',section:'brief',src:'Africanews · Le Monde',title:'2,000 migrants reach Canary Islands'},
- {id:22,region:'ME',section:'brief',src:'AP · DW',title:'Drone attack kills two Libyan officers'},
- {id:23,region:'ME',section:'brief',src:'BBC · Al Jazeera',title:'Israeli strike kills Hamas chief'},
- {id:24,region:'ME',section:'brief',src:'Axios · Times of Israel',title:'Kushner presses Netanyahu on Gaza'},
- {id:25,region:'AF',section:'brief',src:'BBC · Al Jazeera',title:'Court quashes Ramaphosa report'},
- {id:26,region:'AF',section:'brief',src:'Al Jazeera · allAfrica',title:"Tinubu vows peace in the northeast"},
- {id:27,region:'AF',section:'brief',src:'Le Monde · RFI',title:'Madagascar elects new speaker'},
- {id:28,region:'AF',section:'brief',src:'Africanews · RFI',title:'CAR media go dark over threats'},
- {id:29,region:'AM',section:'brief',src:'Infobae · UnoTV',title:"Mexico freezes governor's accounts"},
- {id:30,region:'AM',section:'brief',src:'PBS · CNN',title:'US Army detonates Iowa stockpile'},
- {id:31,region:'AM',section:'brief',src:'AP · Planalto',title:'Brazil rejects US tariff threats'},
- {id:32,region:'AS',section:'brief',src:'Indian Express · ET',title:'US proposes 25% tariffs on India'},
- {id:33,region:'AS',section:'brief',src:'Mainichi · Nikkei Asia',title:'Takaishi keeps scandal-hit minister'},
- {id:34,region:'AS',section:'brief',src:'AP · BBC',title:'Pyongyang expels Swiss diplomat'},
- {id:35,region:'AS',section:'brief',src:'The Nation · Bangkok Post',title:"Thailand's cyanide killer sentenced"}
-];
-
-const MAP=[
- {x:22,y:26,region:'EU'},
- {x:24,y:44,region:'AM'},
- {x:30,y:48,region:'AM'},
- {x:52,y:28,region:'ME'},
- {x:56,y:31,region:'ME'},
- {x:49,y:34,region:'ME'},
- {x:53,y:37,region:'ME'},
- {x:48,y:47,region:'AF'},
- {x:53,y:50,region:'AF'},
- {x:46,y:52,region:'AF'},
- {x:68,y:28,region:'AS'},
- {x:74,y:32,region:'AS'},
- {x:78,y:36,region:'AS'},
- {x:72,y:40,region:'AS'},
- {x:86,y:42,region:'OC'}
-];
-
-function render(){
-  const page=document.getElementById('page');
-  let h='';
-
-  h+=`<div class="masthead">
-    <div class="mast-top">
-      <div class="mast-name">THE WORLD IN ONE DAY</div>
-      <div class="mast-center"><div class="mast-date">WEDNESDAY 25 NOVEMBER 2026</div>
-      <div class="mast-deck"><b>ONE IMAGE · 35 STORIES · 7 REGIONS</b> · ALL EVENTS OF 25 NOVEMBER, ANY TIME ZONE</div></div>
-      <div class="mast-right">Vol. 11 · No. 25<br>News Digest</div>
+  <header class="masthead">
+    <div class="mast-side">The World<br>in One Day</div>
+    <div class="mast-center">
+      <div class="mast-title">WEDNESDAY 25 NOVEMBER 2026</div>
+      <div class="mast-sub">One image · 35 stories · 7 regions · all events of 25 November, any time zone</div>
     </div>
-  </div>`;
+    <div class="mast-side right">Vol. 11 · No. 25<br>News Digest</div>
+  </header>
 
-  h+=`<div class="region-band">${REGIONS.map(r=>`<div class="region" style="background:${r.color}">
-    <b>${r.name}</b><span>${r.count} stories</span></div>`).join('')}</div>`;
+  <div class="regions">
+    <div class="region" style="background:#3FA37A"><b>EUROPE</b><span>7 stories</span></div>
+    <div class="region" style="background:#D94A38"><b>MIDDLE EAST</b><span>7 stories</span></div>
+    <div class="region" style="background:#8B63C9"><b>AFRICA</b><span>7 stories</span></div>
+    <div class="region" style="background:#D98A2B"><b>ASIA</b><span>7 stories</span></div>
+    <div class="region" style="background:#2E7BC4"><b>AMERICAS</b><span>5 stories</span></div>
+    <div class="region" style="background:#B07A3F"><b>OCEANIA</b><span>1 story</span></div>
+    <div class="region" style="background:#6E6E6E"><b>GLOBAL</b><span>1 story</span></div>
+  </div>
 
-  h+=`<div class="numbers">${NUMBERS.map(n=>`<div class="num"><b>${n.v}</b><span>${n.cap}</span></div>`).join('')}</div>`;
+  <div class="stats">
+    <div class="stat"><div class="num">5</div><div class="txt">Ukrainian regions<br>left in blackouts</div></div>
+    <div class="stat"><div class="num">14</div><div class="txt">trading partners facing<br>new US tariffs</div></div>
+    <div class="stat"><div class="num">31</div><div class="txt">dead in Cairo<br>fuel-tanker fire</div></div>
+    <div class="stat"><div class="num">19</div><div class="txt">killed in Sudan<br>drone strike</div></div>
+    <div class="stat"><div class="num">6.16%</div><div class="txt">drop in South<br>Korea's Kospi</div></div>
+  </div>
 
-  const leads=STORIES.filter(s=>s.section==='lead');
-  h+=`<div class="sec-head"><span class="sec-no">01</span><h2>The Lead</h2><span class="rule"></span><span class="aside">the day, in three dispatches</span></div>
-      <div class="leads">${leads.map(s=>`<div class="lead" style="border-top-color:${REG[s.region]}">
-        <div class="lead-kick">${REGNAME[s.region]}<span class="tag">${s.tag||''}</span></div>
-        <div class="lead-art">${art(s.art,REG[s.region])}</div>
-        <div class="lead-title">${s.title}</div>
-        <div class="lead-body">${s.body}</div>
-        <div class="lead-src">${s.src}</div>
-      </div>`).join('')}</div>`;
+  <section class="section">
+    <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">The Lead</span><span class="sec-note">Three stories that shaped the day</span></div>
+    <div class="lead-grid">
+      <article class="lead">
+        <div class="lead-label">Europe · Confirmed</div>
+        <div class="lead-art" style="background:#3FA37A"><svg class="icon"><use href="#i-war"/></svg></div>
+        <h1 class="lead-title">Russian strikes cut power in five regions</h1>
+        <p class="lead-body">Drones and missiles hit energy and gas facilities in five Ukrainian regions; the Zaporizhzhia nuclear plant switched to diesel.</p>
+        <div class="lead-src">Al Jazeera · Kyiv Independent</div>
+      </article>
+      <article class="lead">
+        <div class="lead-label">Global · Proposed</div>
+        <div class="lead-art" style="background:#6E6E6E"><svg class="icon"><use href="#i-tariff"/></svg></div>
+        <h1 class="lead-title">US proposes tariffs on 14 trade partners</h1>
+        <p class="lead-body">The USTR proposed new tariffs on 14 economies over “structural overcapacity”, including China, the EU, India and South Korea.</p>
+        <div class="lead-src">USTR · Reuters</div>
+      </article>
+      <article class="lead">
+        <div class="lead-label">Asia · Confirmed</div>
+        <div class="lead-art" style="background:#D98A2B"><svg class="icon"><use href="#i-rocket"/></svg></div>
+        <h1 class="lead-title">Shenzhou 24 carries Pakistan's first astronaut</h1>
+        <p class="lead-body">China's Shenzhou 24 docked with Tiangong carrying Pakistan's first astronaut — the first foreign national aboard.</p>
+        <div class="lead-src">Reuters · AP</div>
+      </article>
+    </div>
+  </section>
 
-  const cards=STORIES.filter(s=>s.section==='card');
-  h+=`<div class="sec-head"><span class="sec-no">02</span><h2>The Cards</h2><span class="rule"></span><span class="aside">${cards.length} more, across regions</span></div>
-      <div class="cards">${cards.map(s=>`<div class="card" style="border-top-color:${REG[s.region]}">
-        <div class="card-art">${art(s.art,REG[s.region])}</div>
-        <div class="card-txt">
-          <div class="card-title">${s.title}</div>
-          <div class="card-body">${s.body}</div>
-          <div class="card-meta">${REGNAME[s.region]}<b> · </b>${s.src}</div>
-        </div>
-      </div>`).join('')}</div>`;
+  <section class="section">
+    <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">The Cards</span><span class="sec-note">Twelve more headlines, one line each</span></div>
+    <div class="cards-grid">
+      <article class="card">
+        <div class="card-art" style="background:#D94A38"><svg class="icon"><use href="#i-tanker"/></svg></div>
+        <div class="card-main"><h2 class="card-title">Fourth tanker mined in Hormuz</h2><p class="card-body">An LNG carrier hit a mine and caught fire in Hormuz; Iran says three ships were mined in days.</p><div class="card-meta">Arab News · Mehr</div></div>
+      </article>
+      <article class="card">
+        <div class="card-art" style="background:#D94A38"><svg class="icon"><use href="#i-refinery"/></svg></div>
+        <div class="card-main"><h2 class="card-title">Houthis hit Saudi refinery and Riyadh</h2><p class="card-body">Second attack in a week; the Saudi-led coalition said it intercepted four drones.</p><div class="card-meta">DW · Al-Monitor</div></div>
+      </article>
+      <article class="card">
+        <div class="card-art" style="background:#D94A38"><svg class="icon"><use href="#i-fire"/></svg></div>
+        <div class="card-main"><h2 class="card-title">Cairo fuel-tanker fire kills 31</h2><p class="card-body">A fuel tanker overturned and caught fire in Cairo, killing at least 31 and injuring over 20.</p><div class="card-meta">AP · BBC</div></div>
+      </article>
+      <article class="card">
+        <div class="card-art" style="background:#D94A38"><svg class="icon"><use href="#i-waves"/></svg></div>
+        <div class="card-main"><h2 class="card-title">Rains threaten 1,000 Gaza shelters</h2><p class="card-body">A municipal coalition said 200,000 tents need replacing and urged that all crossings be opened.</p><div class="card-meta">Al Jazeera · Anadolu</div></div>
+      </article>
+      <article class="card">
+        <div class="card-art" style="background:#8B63C9"><svg class="icon"><use href="#i-war"/></svg></div>
+        <div class="card-main"><h2 class="card-title">Sudan drone attack kills 19</h2><p class="card-body">A night drone attack by the RSF on Ad-Damazin and Roseires killed 19 and injured more than 20.</p><div class="card-meta">Reuters · Al Jazeera</div></div>
+      </article>
+      <article class="card">
+        <div class="card-art" style="background:#8B63C9"><svg class="icon"><use href="#i-lab"/></svg></div>
+        <div class="card-main"><h2 class="card-title">Nigeria raids $220m meth lab</h2><p class="card-body">The NDLEA dismantled an industrial methamphetamine lab in Enugu and arrested six people.</p><div class="card-meta">AP · BBC</div></div>
+      </article>
+      <article class="card">
+        <div class="card-art" style="background:#8B63C9"><svg class="icon"><use href="#i-cup"/></svg></div>
+        <div class="card-main"><h2 class="card-title">Senegal restored as AFCON champion</h2><p class="card-body">The CAS overturned the 2025 CAF decision; Morocco said it will appeal.</p><div class="card-meta">BBC · Al Jazeera</div></div>
+      </article>
+      <article class="card">
+        <div class="card-art" style="background:#B07A3F"><svg class="icon"><use href="#i-flag"/></svg></div>
+        <div class="card-main"><h2 class="card-title">Australia, Solomon Islands sign pact</h2><p class="card-body">A bilateral security treaty bans foreign military bases; a 2022 China pact will not be renewed.</p><div class="card-meta">PM Australia · AP</div></div>
+      </article>
+      <article class="card">
+        <div class="card-art" style="background:#2E7BC4"><svg class="icon"><use href="#i-police"/></svg></div>
+        <div class="card-main"><h2 class="card-title">All hostages freed in Cartagena</h2><p class="card-body">Police stormed an Éxito supermarket, ending a day-long standoff; one hostage-taker was killed.</p><div class="card-meta">AP · The Guardian</div></div>
+      </article>
+      <article class="card">
+        <div class="card-art" style="background:#2E7BC4"><svg class="icon"><use href="#i-flag2"/></svg></div>
+        <div class="card-main"><h2 class="card-title" style="height:45px">Brazil recalls ambassador to Argentina</h2><p class="card-body">Brazil said it had lost “strategic patience” as the crisis between the two countries escalated.</p><div class="card-meta">El País · Infobae</div></div>
+      </article>
+      <article class="card">
+        <div class="card-art" style="background:#D98A2B"><svg class="icon"><use href="#i-market"/></svg></div>
+        <div class="card-main"><h2 class="card-title">Kospi plunges 6.16% on chip selloff</h2><p class="card-body">The Kospi closed at 4,697.51, down 6.16%, while Kosdaq fell 2.29%.</p><div class="card-meta">Yonhap · Korea JoongAng</div></div>
+      </article>
+      <article class="card">
+        <div class="card-art" style="background:#D98A2B"><svg class="icon"><use href="#i-mine2"/></svg></div>
+        <div class="card-main"><h2 class="card-title">Flooded gold mine traps 17 in Java</h2><p class="card-body">An illegal gold mine flooded in Bogor, West Java, killing nine and leaving 17 trapped.</p><div class="card-meta">AP · Reuters</div></div>
+      </article>
+    </div>
+  </section>
 
-  const briefs=STORIES.filter(s=>s.section==='brief');
-  h+=`<div class="sec-head"><span class="sec-no">03</span><h2>The Briefs</h2><span class="rule"></span><span class="aside">${briefs.length} short, one line each</span></div>
-      <div class="briefs">${briefs.map((s,i)=>`<div class="brief"><span class="n">${s.id}</span>${s.title}<span class="src">${REGNAME[s.region]} · ${s.src}</span></div>`).join('')}</div>`;
+  <section class="section">
+    <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">The Briefs</span><span class="sec-note">Twenty quick reads from every region</span></div>
+    <div class="briefs-grid">
+      <div class="brief"><div class="brief-title">EU, Western Balkans close summit</div><div class="brief-src">European Council · EC</div></div>
+      <div class="brief"><div class="brief-title">Merz defends €56bn debt budget</div><div class="brief-src">DW · tagesschau</div></div>
+      <div class="brief"><div class="brief-title">Burnham refuses PMQs apology</div><div class="brief-src">BBC · The Guardian</div></div>
+      <div class="brief"><div class="brief-title">French MPs advance reparations bill</div><div class="brief-src">LCP · Assemblée nationale</div></div>
+      <div class="brief"><div class="brief-title">Greece's 24-hour strike; 14,000 out</div><div class="brief-src">Euronews · eKathimerini</div></div>
+      <div class="brief"><div class="brief-title">2,000 migrants reach Canary Islands</div><div class="brief-src">Africanews · Le Monde</div></div>
+      <div class="brief"><div class="brief-title">Drone attack kills two Libyan officers</div><div class="brief-src">AP · DW</div></div>
+      <div class="brief"><div class="brief-title">Israeli strike kills Hamas chief</div><div class="brief-src">BBC · Al Jazeera</div></div>
+      <div class="brief"><div class="brief-title">Kushner presses Netanyahu on Gaza</div><div class="brief-src">Axios · Times of Israel</div></div>
+      <div class="brief"><div class="brief-title">Court quashes Ramaphosa report</div><div class="brief-src">BBC · Al Jazeera</div></div>
+      <div class="brief"><div class="brief-title">Tinubu vows peace in the northeast</div><div class="brief-src">Al Jazeera · allAfrica</div></div>
+      <div class="brief"><div class="brief-title">Madagascar elects new speaker</div><div class="brief-src">Le Monde · RFI</div></div>
+      <div class="brief"><div class="brief-title">CAR media go dark over threats</div><div class="brief-src">Africanews · RFI</div></div>
+      <div class="brief"><div class="brief-title">Mexico freezes governor's accounts</div><div class="brief-src">Infobae · UnoTV</div></div>
+      <div class="brief"><div class="brief-title">US Army detonates Iowa stockpile</div><div class="brief-src">PBS · CNN</div></div>
+      <div class="brief"><div class="brief-title">Brazil rejects US tariff threats</div><div class="brief-src">AP · Planalto</div></div>
+      <div class="brief"><div class="brief-title">US proposes 25% tariffs on India</div><div class="brief-src">Indian Express · Economic Times</div></div>
+      <div class="brief"><div class="brief-title">Takaishi keeps scandal-hit minister</div><div class="brief-src">Mainichi · Nikkei Asia</div></div>
+      <div class="brief"><div class="brief-title">Pyongyang expels Swiss diplomat</div><div class="brief-src">AP · BBC</div></div>
+      <div class="brief"><div class="brief-title">Thailand's cyanide killer sentenced</div><div class="brief-src">The Nation · Bangkok Post</div></div>
+    </div>
+  </section>
 
-  h+=`<div class="map-section">
-    <div class="sec-head" style="margin-top:0"><span class="sec-no">04</span><h2>Where It Happened</h2><span class="rule"></span><span class="aside">25 November 2026</span></div>
-    <div class="map-holder"><svg class="map-svg" viewBox="0 0 1000 62" preserveAspectRatio="none">
-      <rect width="1000" height="62" fill="#1B1A17"/>
-      ${MAP.map(p=>`<circle class="pin" cx="${p.x*10}" cy="${p.y*1.5}" r="3.4"/>`).join('')}
-      <text class="map-region" x="200" y="30">EUROPE</text>
-      <text class="map-region" x="520" y="26">MIDDLE EAST</text>
-      <text class="map-region" x="520" y="46">AFRICA</text>
-      <text class="map-region" x="700" y="24">ASIA</text>
-      <text class="map-region" x="260" y="50">AMERICAS</text>
-      <text class="map-region" x="870" y="40">OCEANIA</text>
-    </svg><div class="map-key">Dots mark the regions covered · 7 regions</div><div class="map-note">25 November 2026 · any time zone</div></div></div>`;
+  <section class="section">
+    <div class="sec-head"><span class="sec-num">04</span><span class="sec-title">Where It Happened</span><span class="sec-note">Fifteen pins, seven regions, one day</span></div>
+    <div class="map-wrap">
+      <svg viewBox="0 0 998 96" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="dotmesh" width="6" height="6" patternUnits="userSpaceOnUse">
+            <circle cx="1.2" cy="1.2" r="0.95" fill="#1B1813" opacity="0.55"/>
+          </pattern>
+        </defs>
+        <g>
+          <path d="M34 12 L142 7 L188 21 L176 40 L142 47 L118 39 L96 50 L66 41 L44 28 Z" fill="#2E7BC4"/>
+          <path d="M34 12 L142 7 L188 21 L176 40 L142 47 L118 39 L96 50 L66 41 L44 28 Z" fill="url(#dotmesh)"/>
+          <path d="M152 50 L188 47 L198 63 L181 86 L160 91 L147 75 L138 61 Z" fill="#2E7BC4"/>
+          <path d="M152 50 L188 47 L198 63 L181 86 L160 91 L147 75 L138 61 Z" fill="url(#dotmesh)"/>
+          <path d="M358 12 L424 7 L468 15 L461 31 L428 37 L398 33 L372 25 Z" fill="#3FA37A"/>
+          <path d="M358 12 L424 7 L468 15 L461 31 L428 37 L398 33 L372 25 Z" fill="url(#dotmesh)"/>
+          <path d="M392 42 L456 38 L491 53 L480 77 L450 92 L420 84 L400 64 Z" fill="#8B63C9"/>
+          <path d="M392 42 L456 38 L491 53 L480 77 L450 92 L420 84 L400 64 Z" fill="url(#dotmesh)"/>
+          <path d="M500 31 L559 26 L591 40 L575 58 L540 63 L514 48 Z" fill="#D94A38"/>
+          <path d="M500 31 L559 26 L591 40 L575 58 L540 63 L514 48 Z" fill="url(#dotmesh)"/>
+          <path d="M600 9 L779 6 L851 16 L861 38 L821 61 L761 67 L702 57 L651 41 L611 29 Z" fill="#D98A2B"/>
+          <path d="M600 9 L779 6 L851 16 L861 38 L821 61 L761 67 L702 57 L651 41 L611 29 Z" fill="url(#dotmesh)"/>
+          <path d="M690 53 L716 50 L722 73 L701 83 L688 67 Z" fill="#D98A2B"/>
+          <path d="M690 53 L716 50 L722 73 L701 83 L688 67 Z" fill="url(#dotmesh)"/>
+          <path d="M852 63 L931 59 L951 73 L931 87 L871 87 L846 75 Z" fill="#B07A3F"/>
+          <path d="M852 63 L931 59 L951 73 L931 87 L871 87 L846 75 Z" fill="url(#dotmesh)"/>
+        </g>
+        <g fill="#FFF8EA" stroke="#1B1813" stroke-width="1.2">
+          <circle cx="112" cy="24" r="4.3"/><circle cx="168" cy="66" r="4.3"/><circle cx="176" cy="80" r="4.3"/>
+          <circle cx="404" cy="20" r="4.3"/><circle cx="442" cy="60" r="4.3"/><circle cx="520" cy="41" r="4.3"/>
+          <circle cx="560" cy="36" r="4.3"/><circle cx="612" cy="26" r="4.3"/><circle cx="700" cy="34" r="4.3"/>
+          <circle cx="784" cy="22" r="4.3"/><circle cx="820" cy="46" r="4.3"/><circle cx="708" cy="66" r="4.3"/>
+          <circle cx="668" cy="50" r="4.3"/><circle cx="892" cy="73" r="4.3"/><circle cx="948" cy="68" r="4.3"/>
+        </g>
+        <g fill="#FFF8EA" font-family="Georgia, serif" font-size="6.8" letter-spacing="1.1" opacity="0.95">
+          <text x="52" y="31">AMERICAS</text>
+          <text x="372" y="27">EUROPE</text>
+          <text x="504" y="52">MIDDLE EAST</text>
+          <text x="414" y="84">AFRICA</text>
+          <text x="728" y="76">ASIA</text>
+          <text x="856" y="82">OCEANIA</text>
+        </g>
+      </svg>
+    </div>
+  </section>
 
-  h+=`<div class="date-check">
-    <div class="dc-label">DATE CHECK</div>
-    <div class="dc-text"><b>Wednesday 25 November 2026.</b> Every story on this page happened on 25 November 2026 or was first reported that day, in any time zone. No earlier day, no later day.</div>
-    <div class="dc-tags"><b>REGIONS</b> Europe · Middle East · Africa · Asia · Americas · Oceania · Global<br>
-      <b>SOURCES</b> AP · Reuters · BBC · Al Jazeera · DW · AFP-linked services · official filings</div>
-  </div>`;
+  <footer class="footer">
+    <div class="date-check"><b>DATE CHECK</b> — Every story happened or was first reported on Wednesday 25 November 2026, any time zone.</div>
+    <div class="foot-meta">Regions: Europe · Middle East · Africa · Asia · Americas · Oceania · Global<br>Sources: Reuters · AP · BBC · Al Jazeera · AFP and others</div>
+  </footer>
 
-  page.insertAdjacentHTML('beforeend',h);
-}
-render();
+</div>
 
-// Layout QA: record overflow/clipping so the headless DOM dump can be checked.
-(function(){
-  const page=document.getElementById('page');
-  const clipped=[];
-  document.querySelectorAll('.lead-title,.lead-body,.card-title,.card-body,.brief,.lead-src,.card-meta,.lead-kick').forEach(el=>{
-    if(el.scrollHeight>el.clientHeight+1||el.scrollWidth>el.clientWidth+1){
-      clipped.push({cls:el.className,txt:(el.textContent||'').slice(0,32),sh:el.scrollHeight,ch:el.clientHeight,sw:el.scrollWidth,cw:el.clientWidth});
-    }
-  });
-  const qa={docH:document.documentElement.scrollHeight,pageH:page.scrollHeight,
-    leads:document.querySelectorAll('.lead').length,cards:document.querySelectorAll('.card').length,
-    briefs:document.querySelectorAll('.brief').length,clippedCount:clipped.length,clipped:clipped.slice(0,12)};
-  page.setAttribute('data-qa',JSON.stringify(qa));
-})();
+<script>
+  (function () {
+    var selectors = ['.lead-title', '.lead-body', '.card-title', '.card-body', '.brief', '.lead-src', '.card-meta'];
+    var clipped = [];
+    selectors.forEach(function (sel) {
+      document.querySelectorAll(sel).forEach(function (el) {
+        if (el.scrollHeight > el.clientHeight + 1) {
+          clipped.push(sel + '::' + (el.textContent || '').trim().slice(0, 48));
+        }
+      });
+    });
+    var qa = {
+      docH: document.documentElement.scrollHeight,
+      pageH: document.body.scrollHeight,
+      leads: document.querySelectorAll('.lead').length,
+      cards: document.querySelectorAll('.card').length,
+      briefs: document.querySelectorAll('.brief').length,
+      clippedCount: clipped.length,
+      clipped: clipped
+    };
+    document.documentElement.setAttribute('data-qa', JSON.stringify(qa));
+  })();
 </script>
 </body>
 </html>

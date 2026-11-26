@@ -4,9 +4,9 @@
 [![rank](https://make.fun/badge/news-image-20261125/Thai-ji/one-day-news-20261125/rank.svg)](https://make.fun/bounty/news-image-20261125)
 [![reward](https://make.fun/badge/news-image-20261125/Thai-ji/one-day-news-20261125/reward.svg)](https://make.fun/bounty/news-image-20261125)
 
-A one-page newspaper image summing up the world news of Wednesday 25 November 2026. Every story is an event of that day, or was first reported on that day; the date-check bar names the earlier stories that were deliberately left out.
+A one-page newspaper image summing up the world news of Wednesday 25 November 2026. Every story is an event of that day, or was first reported on that day; the date-check bar states that scope.
 
-The page carries 35 stories from seven regions: three illustrated leads, twelve illustrated cards and twenty one-line briefs, plus a six-number strip and a dotted world map with 23 numbered pins.
+The page carries 35 stories from seven regions: three illustrated leads, twelve illustrated cards and twenty one-line briefs, plus a five-number strip and a dotted world map with fifteen pins.
 
 ## Files
 
