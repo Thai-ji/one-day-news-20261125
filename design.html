@@ -251,17 +251,21 @@ const STORIES=[
 ];
 
 const MAP=[
- {x:22,y:26,label:'1',region:'EU'},
- {x:52,y:30,label:'4',region:'ME'},
- {x:58,y:40,label:'3',region:'ME'},
- {x:46,y:34,label:'2',region:'ME'},
- {x:50,y:46,label:'5',region:'AF'},
- {x:68,y:28,label:'6',region:'AS'},
- {x:76,y:34,label:'7',region:'AS'},
- {x:72,y:42,label:'8',region:'AS'},
- {x:24,y:46,label:'9',region:'AM'},
- {x:30,y:42,label:'10',region:'AM'},
- {x:86,y:38,label:'11',region:'OC'}
+ {x:22,y:26,region:'EU'},
+ {x:24,y:44,region:'AM'},
+ {x:30,y:48,region:'AM'},
+ {x:52,y:28,region:'ME'},
+ {x:56,y:31,region:'ME'},
+ {x:49,y:34,region:'ME'},
+ {x:53,y:37,region:'ME'},
+ {x:48,y:47,region:'AF'},
+ {x:53,y:50,region:'AF'},
+ {x:46,y:52,region:'AF'},
+ {x:68,y:28,region:'AS'},
+ {x:74,y:32,region:'AS'},
+ {x:78,y:36,region:'AS'},
+ {x:72,y:40,region:'AS'},
+ {x:86,y:42,region:'OC'}
 ];
 
 function render(){
@@ -311,14 +315,14 @@ function render(){
     <div class="sec-head" style="margin-top:0"><span class="sec-no">04</span><h2>Where It Happened</h2><span class="rule"></span><span class="aside">25 November 2026</span></div>
     <div class="map-holder"><svg class="map-svg" viewBox="0 0 1000 62" preserveAspectRatio="none">
       <rect width="1000" height="62" fill="#1B1A17"/>
-      ${MAP.map(p=>`<circle class="pin" cx="${p.x*10}" cy="${p.y*1.5}" r="3.2"/><text class="pin-label" x="${p.x*10}" y="${p.y*1.5+1.6}">${p.label}</text>`).join('')}
+      ${MAP.map(p=>`<circle class="pin" cx="${p.x*10}" cy="${p.y*1.5}" r="3.4"/>`).join('')}
       <text class="map-region" x="200" y="30">EUROPE</text>
       <text class="map-region" x="520" y="26">MIDDLE EAST</text>
       <text class="map-region" x="520" y="46">AFRICA</text>
       <text class="map-region" x="700" y="24">ASIA</text>
       <text class="map-region" x="260" y="50">AMERICAS</text>
       <text class="map-region" x="870" y="40">OCEANIA</text>
-    </svg><div class="map-key">Lead stories 1–3 · card stories 4–15</div><div class="map-note">25 November 2026 · any time zone</div></div></div>`;
+    </svg><div class="map-key">Dots mark the regions covered · 7 regions</div><div class="map-note">25 November 2026 · any time zone</div></div></div>`;
 
   h+=`<div class="date-check">
     <div class="dc-label">DATE CHECK</div>
