@@ -1,32 +1,77 @@
-# The World Today — Wednesday 25 November 2026
+# news-25 — THE WORLD IN ONE DAY (Wednesday 25 November 2026)
 
-[![make.fun news image](https://make.fun/badge/news-image-20261125.svg)](https://make.fun/bounty/news-image-20261125)
-[![rank](https://make.fun/badge/news-image-20261125/Thai-ji/one-day-news-20261125/rank.svg)](https://make.fun/bounty/news-image-20261125)
-[![reward](https://make.fun/badge/news-image-20261125/Thai-ji/one-day-news-20261125/reward.svg)](https://make.fun/bounty/news-image-20261125)
+![competition](https://img.shields.io/badge/news--image-20261125-b02418)
+![owner](https://img.shields.io/badge/owner-Thai--ji-1e4a74)
+![repo](https://img.shields.io/badge/repo-one--day--news--20261125-2c6a4d)
 
-A one-page newspaper image summing up the world news of Wednesday 25 November 2026. Every story is an event of that day, or was first reported on that day; the date-check bar states that scope.
-
-The page carries 35 stories from seven regions: three illustrated leads, twelve illustrated cards and twenty one-line briefs, plus a five-number strip and a dotted world map with fifteen pins.
+A one-page, 1024×1024 newspaper front page for the make.fun `news-image-20261125`
+competition: **35 stories, 7 regions, 15 fields**, with 13 original flat SVG
+illustrations (3 large cards + 10 small cards), a world map with 13 numbered pins,
+22 one-line briefs, a six-box stats strip and a DATE CHECK box.
 
 ## Files
 
-- `design.html` — the page, all styling and inline SVG artwork.
-- `entry.png` — the rendered 1024 × 1024 PNG entry.
-- `render.ps1` — renders `design.html` to `entry.png` with headless Microsoft Edge.
-- `main.ts` — validates the PNG and copies it to `MAKEFUN_OUTPUT_DIR` (default `/output`).
-- `LICENSE` — MIT.
+| File | Purpose |
+| --- | --- |
+| `design.html` | The page. All CSS and all 13 SVG scenes are inline; no external fonts or images. |
+| `render.ps1` | Renders `design.html` to `entry.png` with Microsoft Edge headless. |
+| `main.ts` | Validates `entry.png` (PNG signature, IHDR size ≤1024×1024, ≤1,048,576 bytes) and copies it to `MAKEFUN_OUTPUT_DIR` (default `/output`). |
+| `entry.png` | The rendered 1024×1024 submission image. |
+| `LICENSE` | Repository licence. |
 
-## Build and check
+## Render
 
 ```powershell
-pwsh -File .\render.ps1
-mkdir out
+.\render.ps1
+```
+
+If the machine's execution policy blocks local scripts:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\render.ps1
+```
+
+The script deletes the old `entry.png`, launches Edge with
+`--headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1
+--window-size=1024,1024 --screenshot=entry.png --virtual-time-budget=5000`
+and waits for the PNG to land. Requires Microsoft Edge on Windows.
+
+## Validate and copy the output
+
+```powershell
 $env:MAKEFUN_OUTPUT_DIR = "out"
 node main.ts
 ```
 
-`main.ts` checks the PNG signature, IHDR dimensions (at most 1024 × 1024) and the 1 MiB cap, then copies the file. It uses only the Node standard library and runs on Node 22.18 or later.
+`main.ts` prints the PNG dimensions and byte size, rejects anything larger than
+1024×1024 or 1,048,576 bytes, and writes the accepted file to the output
+directory as `entry.png`.
 
-## Sources
+## Layout
 
-The edition is compiled from the supplied 25 November 2026 facts sheet; each story carries its outlet abbreviation in the page (`ATLAS360`, `CNA`, `DAWN`, `MEDUZA`, `SCMP`, `MEE`, `EURONEWS`, `RIO TIMES`, `PREMIUM TIMES`, and others). The page does not add facts beyond that sheet.
+1. Kicker — `THE WORLD IN ONE DAY` / `35 STORIES · 7 REGIONS · 15 FIELDS`
+2. Masthead — `WEDNESDAY 25 NOVEMBER 2026` (68 px, the largest element)
+3. Italic subhead — the three lead stories in one sentence
+4. Stats strip — six real numbers from the fact sheet
+5. Region strip — seven proportional colour segments, 35 stories total
+6. Three large cards — Hormuz tanker, Solomon Islands treaty, Bangladesh garment pay
+7. Two rows of five small cards — Estonia border, Taiwan stocks, CIA cyberattack,
+   Hodeidah, DR Congo cobalt, UN women, Mississippi crash, Russian ships,
+   Indonesian mine, Cuba life expectancy
+8. Map band — dotted Natural Earth 110m world map with pins 1–13 plus `ALSO — STORIES 14–35`
+9. DATE CHECK — four stories that are *not* 25 November
+10. Footer — credibility legend and story count
+
+## Sources and credibility
+
+Every story and number comes from the fact sheet
+`facts-20261125.md` (40 verified candidates, 7 regions). Each card carries its
+source name and a credibility tag: CONFIRMED / OFFICIAL / REPORTED / CLAIM /
+ONGOING. The three CONFIRMED cards are the three items whose original articles
+were read end-to-end during collection.
+
+The world map is generated from Natural Earth 110m land polygons (public domain)
+and inlined as dots and SVG pins; the page needs no external assets.
+
+The date is **Wednesday 25 November 2026** — checked against a calendar; the
+fact sheet's "Tuesday" template line was wrong.
